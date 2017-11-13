@@ -15,7 +15,6 @@
                 <el-col :span="3">
                     <h4 class="header-text">联系我们</h4>
                 </el-col>
-
             </el-row>
         </header>
         <div v-show="headerFixed" style="position: relative;height: 60px;width: 100%;"></div>
@@ -23,12 +22,12 @@
         <main style="border: none">
             <!-- 左侧导航 -->
             <div class="main-left">
-                <el-menu default-active="1" :router="true">
+                <el-menu default-active="/activePublic" :router="true" >
                     <div class="el-menu-title">
                         通讯录管理
                     </div>
                     <el-submenu index="1">
-                        <template slot="title">成员管理</template>
+                        <template slot="title" class="is-active">成员管理</template>
                         <el-menu-item index="/activePublic">创建成员</el-menu-item>
                         <el-menu-item index="/group">读取成员</el-menu-item>
                         <!--<el-menu-item index="/activePublic">读取成员</el-menu-item>-->
@@ -43,6 +42,7 @@
                             <el-menu-item index="/group2">更新部门</el-menu-item>
                         <!--</el-menu-item-group>-->
                     </el-submenu>
+
                     <el-submenu index="3">
                         <template slot="title">标签管理</template>
                         <!--<el-menu-item-group>-->
@@ -67,17 +67,7 @@
                             <!--<el-menu-item>选项18</el-menu-item>-->
                             <!--<el-menu-item>选项19</el-menu-item>-->
                             <!--<el-menu-item>选项20</el-menu-item>-->
-                            <!--<el-menu-item>选项21</el-menu-item>-->
-                            <!--<el-menu-item>选项22</el-menu-item>-->
-                            <!--<el-menu-item>选项23</el-menu-item>-->
-                            <!--<el-menu-item>选项24</el-menu-item>-->
-                            <!--<el-menu-item>选项25</el-menu-item>-->
-                            <!--<el-menu-item>选项26</el-menu-item>-->
-                            <!--<el-menu-item>选项27</el-menu-item>-->
-                            <!--<el-menu-item>选项28</el-menu-item>-->
-                            <!--<el-menu-item>选项29</el-menu-item>-->
-                            <!--<el-menu-item>选项30</el-menu-item>-->
-                            <!--<el-menu-item>选项31</el-menu-item>-->
+
                         <!--</el-menu-item-group>-->
                         <!--<el-menu-item-group title="分组2">-->
                         <!--<el-menu-item index="3-3">选项3</el-menu-item>-->
@@ -87,6 +77,9 @@
                         <!--<el-menu-item index="3-4-1">选项4-1</el-menu-item>-->
                         <!--</el-submenu>-->
                     </el-submenu>
+                    <li style="min-height: 800px">
+
+                    </li>
                 </el-menu>
 
             </div>
@@ -184,17 +177,17 @@
     }
 
     main .main-left{
-        width: 220px;
+        width: 15%;
         padding-top: 50px;
         position: fixed;
         overflow-y: scroll;
         overflow-x: hidden;
         text-align: center;
-        /*min-height: 900px;*/
-        height:-moz-calc(100% - 150px);
-        height:-webkit-calc(100% - 150px);
-        height: calc(100% - 150px);
+        height:-moz-calc(900px - 150px);
+        height:-webkit-calc(900px - 150px);
+        height: calc(900px - 1px);
         background-color: rgb(237, 239, 242);
+        max-height: 900px;
     }
 
     main .main-right {
@@ -203,6 +196,7 @@
         flex: 1;
         background-color: #fff;
         padding: 50px 70px;
+        padding-left: 20.8%;
     }
 
     main .el-menu {
@@ -278,28 +272,33 @@
 
     /*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
     .main-left::-webkit-scrollbar { /*滚动条整体样式*/
-        width: 8px; /*高宽分别对应横竖滚动的尺寸*/
-        height: 4px;
-        background-color: rgb(204, 204, 204);
+        /*width: 8px; !*高宽分别对应横竖滚动的尺寸*!*/
+        /*height: 4px;*/
+        /*background-color: rgb(204, 204, 204);*/
+        width: 8px;
+        height: 10px;
+    }
+
+    .main-left::-webkit-scrollbar-corner{
+        background-color: transparent;
     }
 
     /*定义滑块 内阴影+圆角*/
     .main-left::-webkit-scrollbar-thumb { /*滚动条里面的小方块*/
-        border-radius: 5px;
-        /*-webkit-box-shadow: inset 0 0 3px rgba(0,0,0,.3);*/
-        -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+        /*border-radius: 5px;*/
+        /*-webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);*/
+        /*background-color: #ccc;*/
         background-color: #ccc;
+        border-radius: 5px;
     }
 
     /*定义滚动条轨道 内阴影+圆角*/
     .main-left::-webkit-scrollbar-track { /*滚动条里面轨道*/
-        /*-webkit-box-shadow: inset 0 0 3px rgba(0,0,0,0.3);*/
-        -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.01);
-        border-radius: 10px;
-        /*border-radius: 5px;*/
-        background: #EDEDED;
+        /*-webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.01);*/
+        /*border-radius: 10px;*/
+        /*background: #EDEDED;*/
+        background: 0 0;
     }
-
 
     .header img {
         margin-left: 7%;
