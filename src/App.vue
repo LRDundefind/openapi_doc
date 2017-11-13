@@ -1,7 +1,7 @@
 <template>
-    <div id="app">
-        <!-- 头部导航 -->
-        <header class="header" :class="{ 'header-fixed' : headerFixed }">
+ <el-container style="height: 700px; border: 1px solid #eee">
+    <el-container>
+        <el-header>
             <el-row>
                 <el-col :span="17">
                     <img class="f-r" src="../static/logo.png" height="50" width="100"/>
@@ -16,13 +16,10 @@
                     <h4 class="header-text">联系我们</h4>
                 </el-col>
             </el-row>
-        </header>
-        <div v-show="headerFixed" style="position: relative;height: 60px;width: 100%;"></div>
-
-        <main style="border: none">
-            <!-- 左侧导航 -->
-            <div class="main-left">
-                <el-menu default-active="/activePublic" :router="true" >
+        </el-header>
+        <el-container>
+            <el-aside width="15%">
+                <el-menu default-active="/activePublic" :router="true">
                     <div class="el-menu-title">
                         通讯录管理
                     </div>
@@ -37,37 +34,35 @@
                     <el-submenu index="2">
                         <template slot="title">部门管理</template>
                         <!--<el-menu-item-group>-->
-                            <!--<template slot="title">分组一</template>-->
-                            <el-menu-item index="/group1">创建部门</el-menu-item>
-                            <el-menu-item index="/group2">更新部门</el-menu-item>
+                        <!--<template slot="title">分组一</template>-->
+                        <el-menu-item index="/group1">创建部门</el-menu-item>
+                        <el-menu-item index="/group2">更新部门</el-menu-item>
                         <!--</el-menu-item-group>-->
                     </el-submenu>
-
                     <el-submenu index="3">
                         <template slot="title">标签管理</template>
                         <!--<el-menu-item-group>-->
-                            <!--<template slot="title">分组一</template>-->
-                            <el-menu-item index="/group3">创建标签</el-menu-item>
-                            <el-menu-item index="/group4">更新标签名字</el-menu-item>
-                            <el-menu-item index="/group5">删除标签</el-menu-item>
-                            <el-menu-item index="/group6">获取标签成员</el-menu-item>
-                            <!--<el-menu-item>选项5</el-menu-item>-->
-                            <!--<el-menu-item>选项6</el-menu-item>-->
-                            <!--<el-menu-item>选项7</el-menu-item>-->
-                            <!--<el-menu-item>选项8</el-menu-item>-->
-                            <!--<el-menu-item>选项9</el-menu-item>-->
-                            <!--<el-menu-item>选项10</el-menu-item>-->
-                            <!--<el-menu-item>选项11</el-menu-item>-->
-                            <!--<el-menu-item>选项12</el-menu-item>-->
-                            <!--<el-menu-item>选13</el-menu-item>-->
-                            <!--<el-menu-item>选项14</el-menu-item>-->
-                            <!--<el-menu-item>选项15</el-menu-item>-->
-                            <!--<el-menu-item>选项16</el-menu-item>-->
-                            <!--<el-menu-item>选项17</el-menu-item>-->
-                            <!--<el-menu-item>选项18</el-menu-item>-->
-                            <!--<el-menu-item>选项19</el-menu-item>-->
-                            <!--<el-menu-item>选项20</el-menu-item>-->
-
+                        <!--<template slot="title">分组一</template>-->
+                        <el-menu-item index="/group3">创建标签</el-menu-item>
+                        <el-menu-item index="/group4">更新标签名字</el-menu-item>
+                        <el-menu-item index="/group5">删除标签</el-menu-item>
+                        <el-menu-item index="/group6">获取标签成员</el-menu-item>
+                        <!--<el-menu-item>选项5</el-menu-item>-->
+                        <!--<el-menu-item>选项6</el-menu-item>-->
+                        <!--<el-menu-item>选项7</el-menu-item>-->
+                        <!--<el-menu-item>选项8</el-menu-item>-->
+                        <!--<el-menu-item>选项9</el-menu-item>-->
+                        <!--<el-menu-item>选项10</el-menu-item>-->
+                        <!--<el-menu-item>选项11</el-menu-item>-->
+                        <!--<el-menu-item>选项12</el-menu-item>-->
+                        <!--<el-menu-item>选13</el-menu-item>-->
+                        <!--<el-menu-item>选项14</el-menu-item>-->
+                        <!--<el-menu-item>选项15</el-menu-item>-->
+                        <!--<el-menu-item>选项16</el-menu-item>-->
+                        <!--<el-menu-item>选项17</el-menu-item>-->
+                        <!--<el-menu-item>选项18</el-menu-item>-->
+                        <!--<el-menu-item>选项19</el-menu-item>-->
+                        <!--<el-menu-item>选项20</el-menu-item>-->
                         <!--</el-menu-item-group>-->
                         <!--<el-menu-item-group title="分组2">-->
                         <!--<el-menu-item index="3-3">选项3</el-menu-item>-->
@@ -78,25 +73,153 @@
                         <!--</el-submenu>-->
                     </el-submenu>
                     <li style="min-height: 800px">
-
                     </li>
                 </el-menu>
-
-            </div>
-            <!-- 右侧主内容区 -->
-            <div class="main-right">
+            </el-aside>
+            <el-main>
                 <transition name="fade">
                     <router-view class="view"></router-view>
                 </transition>
-            </div>
-        </main>
-    </div>
+            </el-main>
+        </el-container>
+    </el-container>
+
+
+    <!--<div id="app">-->
+    <!--&lt;!&ndash; 头部导航 &ndash;&gt;-->
+    <!--<header class="header">-->
+    <!--<div class="container">-->
+    <!--<img src="./assets/logo.png" alt="logo" class="logo">-->
+    <!--<ul class="nav">-->
+    <!--<li class="nav-item"><el-input placeholder="搜索文档"></el-input></li>-->
+    <!--<li class="nav-item"><router-link :to="'/guide'">指南</router-link></li>-->
+    <!--<li class="nav-item"><router-link :to="'/component'">组件</router-link></li>-->
+    <!--<li class="nav-item"><router-link :to="'/resource'">资源</router-link></li>-->
+    <!--</ul>-->
+    <!--</div>-->
+    <!--</header>-->
+
+    <!--<main>-->
+
+    <!--<div class="page-container">-->
+    <!--<div class="left">-->
+    <!--<div class="aside">-->
+    <!--<h4>组件</h4>-->
+    <!--<ul class="side-nav">-->
+    <!--<li class="nav-item"><router-link :to="{name:'component/uploadCover'}">封面上传</router-link></li>-->
+    <!--<li class="nav-item"><router-link :to="{name:'component/assignDialog'}">部门，人员，标签选择</router-link></li>-->
+    <!--</ul>-->
+    <!--</div>-->
+    <!--</div>-->
+
+    <!--&lt;!&ndash; 右侧主内容区 &ndash;&gt;-->
+    <!--<div  class="right">-->
+    <!--<div class="comMain">-->
+    <!--<router-view></router-view>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+
+    <!--</main>-->
+    <!--</div>-->
 </template>
+
+
+<!--<template>-->
+<!--<div id="app">-->
+<!--&lt;!&ndash; 头部导航 &ndash;&gt;-->
+<!--<header class="header" :class="{ 'header-fixed' : headerFixed }">-->
+<!--<el-row>-->
+<!--<el-col :span="17">-->
+<!--<img class="f-r" src="../static/logo.png" height="50" width="100"/>-->
+<!--</el-col>-->
+<!--<el-col :span="1">-->
+<!--<i class="el-icon-search header-icon"></i>-->
+<!--</el-col>-->
+<!--<el-col :span="3">-->
+<!--<el-input class="el-input  f-l" placeholder="搜索"></el-input>-->
+<!--</el-col>-->
+<!--<el-col :span="3">-->
+<!--<h4 class="header-text">联系我们</h4>-->
+<!--</el-col>-->
+<!--</el-row>-->
+<!--</header>-->
+<!--&lt;!&ndash;<div v-show="headerFixed" style="position: relative;height: 60px;width: 100%;"></div>&ndash;&gt;-->
+
+<!--<main style="border: none">-->
+<!--&lt;!&ndash; 左侧导航 &ndash;&gt;-->
+<!--<div class="main-left">-->
+<!--<el-menu default-active="/activePublic" :router="true" >-->
+<!--<div class="el-menu-title">-->
+<!--通讯录管理-->
+<!--</div>-->
+<!--<el-submenu index="1">-->
+<!--<template slot="title" class="is-active">成员管理</template>-->
+<!--<el-menu-item index="/activePublic">创建成员</el-menu-item>-->
+<!--<el-menu-item index="/group">读取成员</el-menu-item>-->
+<!--&lt;!&ndash;<el-menu-item index="/activePublic">读取成员</el-menu-item>&ndash;&gt;-->
+<!--&lt;!&ndash;<el-menu-item index="/activePublic">读取成员</el-menu-item>&ndash;&gt;-->
+<!--</el-submenu>-->
+
+<!--<el-submenu index="2">-->
+<!--<template slot="title">部门管理</template>-->
+<!--&lt;!&ndash;<el-menu-item-group>&ndash;&gt;-->
+<!--&lt;!&ndash;<template slot="title">分组一</template>&ndash;&gt;-->
+<!--<el-menu-item index="/group1">创建部门</el-menu-item>-->
+<!--<el-menu-item index="/group2">更新部门</el-menu-item>-->
+<!--&lt;!&ndash;</el-menu-item-group>&ndash;&gt;-->
+<!--</el-submenu>-->
+<!--<el-submenu index="3">-->
+<!--<template slot="title">标签管理</template>-->
+<!--&lt;!&ndash;<el-menu-item-group>&ndash;&gt;-->
+<!--&lt;!&ndash;<template slot="title">分组一</template>&ndash;&gt;-->
+<!--<el-menu-item index="/group3">创建标签</el-menu-item>-->
+<!--<el-menu-item index="/group4">更新标签名字</el-menu-item>-->
+<!--<el-menu-item index="/group5">删除标签</el-menu-item>-->
+<!--<el-menu-item index="/group6">获取标签成员</el-menu-item>-->
+<!--&lt;!&ndash;<el-menu-item>选项5</el-menu-item>&ndash;&gt;-->
+<!--&lt;!&ndash;<el-menu-item>选项6</el-menu-item>&ndash;&gt;-->
+<!--&lt;!&ndash;<el-menu-item>选项7</el-menu-item>&ndash;&gt;-->
+<!--&lt;!&ndash;<el-menu-item>选项8</el-menu-item>&ndash;&gt;-->
+<!--&lt;!&ndash;<el-menu-item>选项9</el-menu-item>&ndash;&gt;-->
+<!--&lt;!&ndash;<el-menu-item>选项10</el-menu-item>&ndash;&gt;-->
+<!--&lt;!&ndash;<el-menu-item>选项11</el-menu-item>&ndash;&gt;-->
+<!--&lt;!&ndash;<el-menu-item>选项12</el-menu-item>&ndash;&gt;-->
+<!--&lt;!&ndash;<el-menu-item>选13</el-menu-item>&ndash;&gt;-->
+<!--&lt;!&ndash;<el-menu-item>选项14</el-menu-item>&ndash;&gt;-->
+<!--&lt;!&ndash;<el-menu-item>选项15</el-menu-item>&ndash;&gt;-->
+<!--&lt;!&ndash;<el-menu-item>选项16</el-menu-item>&ndash;&gt;-->
+<!--&lt;!&ndash;<el-menu-item>选项17</el-menu-item>&ndash;&gt;-->
+<!--&lt;!&ndash;<el-menu-item>选项18</el-menu-item>&ndash;&gt;-->
+<!--&lt;!&ndash;<el-menu-item>选项19</el-menu-item>&ndash;&gt;-->
+<!--&lt;!&ndash;<el-menu-item>选项20</el-menu-item>&ndash;&gt;-->
+<!--&lt;!&ndash;</el-menu-item-group>&ndash;&gt;-->
+<!--&lt;!&ndash;<el-menu-item-group title="分组2">&ndash;&gt;-->
+<!--&lt;!&ndash;<el-menu-item index="3-3">选项3</el-menu-item>&ndash;&gt;-->
+<!--&lt;!&ndash;</el-menu-item-group>&ndash;&gt;-->
+<!--&lt;!&ndash;<el-submenu index="3-4">&ndash;&gt;-->
+<!--&lt;!&ndash;<template slot="title">选项4</template>&ndash;&gt;-->
+<!--&lt;!&ndash;<el-menu-item index="3-4-1">选项4-1</el-menu-item>&ndash;&gt;-->
+<!--&lt;!&ndash;</el-submenu>&ndash;&gt;-->
+<!--</el-submenu>-->
+<!--<li style="min-height: 800px">-->
+<!--</li>-->
+<!--</el-menu>-->
+<!--</div>-->
+<!--&lt;!&ndash; 右侧主内容区 &ndash;&gt;-->
+<!--<div class="main-right">-->
+<!--<transition name="fade">-->
+<!--<router-view class="view"></router-view>-->
+<!--</transition>-->
+<!--</div>-->
+<!--</main>-->
+<!--</div>-->
+<!--</template>-->
 
 <script>
     import Vue from 'vue'
     import Element from 'element-ui'
-    import 'element-ui/lib/theme-default/index.css'
+    import 'element-ui/lib/theme-chalk/index.css'
     import $ from 'jquery'
     Vue.use(Element)
     export default {
@@ -135,6 +258,18 @@
 </script>
 
 <style>
+
+    /*主体*/
+    .el-main{
+        border: 0;
+    }
+
+
+
+
+
+
+
     body {
         margin: 0;
     }
@@ -176,15 +311,15 @@
         background-color: #FCFCFC;
     }
 
-    main .main-left{
+    main .main-left {
         width: 15%;
         padding-top: 50px;
         position: fixed;
         overflow-y: scroll;
         overflow-x: hidden;
         text-align: center;
-        height:-moz-calc(900px - 150px);
-        height:-webkit-calc(900px - 150px);
+        height: -moz-calc(900px - 150px);
+        height: -webkit-calc(900px - 150px);
         height: calc(900px - 1px);
         background-color: rgb(237, 239, 242);
         max-height: 900px;
@@ -252,22 +387,22 @@
 
     /*!* 卡片 *!*/
     /*.el-card {*/
-        /*overflow: visible !important;*/
+    /*overflow: visible !important;*/
     /*}*/
 
     /*.el-menu-vertical-demo:not(.el-menu--collapse) {*/
-        /*width: 200px;*/
-        /*min-height: 400px;*/
+    /*width: 200px;*/
+    /*min-height: 400px;*/
     /*}*/
 
     /*.el-header {*/
-        /*background-color: #B3C0D1;*/
-        /*color: #333;*/
-        /*line-height: 60px;*/
+    /*background-color: #B3C0D1;*/
+    /*color: #333;*/
+    /*line-height: 60px;*/
     /*}*/
 
     /*.el-aside {*/
-        /*color: #333;*/
+    /*color: #333;*/
     /*}*/
 
     /*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
@@ -279,7 +414,7 @@
         height: 10px;
     }
 
-    .main-left::-webkit-scrollbar-corner{
+    .main-left::-webkit-scrollbar-corner {
         background-color: transparent;
     }
 

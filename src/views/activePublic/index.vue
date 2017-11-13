@@ -95,27 +95,12 @@
               width="600">
       </el-table-column>
 
-      <!--<el-table-column-->
-      <!--prop="province"-->
-      <!--label="省份"-->
-      <!--width="120">-->
-      <!--</el-table-column>-->
-      <!--<el-table-column-->
-      <!--prop="city"-->
-      <!--label="市区"-->
-      <!--width="120">-->
-      <!--</el-table-column>-->
-      <!--<el-table-column-->
-      <!--prop="address"-->
-      <!--label="地址"-->
-      <!--width="300">-->
-      <!--</el-table-column>-->
-      <!--<el-table-column-->
-      <!--prop="zip"-->
-      <!--label="邮编"-->
-      <!--width="120">-->
-      <!--</el-table-column>-->
     </el-table>
+
+
+
+
+
 
     <el-row>
       <el-col :span="24" style="margin-top: 20px">
