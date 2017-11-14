@@ -98,26 +98,72 @@
     <!--</el-table>-->
 
 
-    <template>
-      <el-table
-              :data="tableData3"
-              style="width: 100%">
-        <el-table-column
-                prop="date"
-                label="参数"
-                width="180">
-        </el-table-column>
-        <el-table-column
-                prop="name"
-                label="必须"
-                width="180">
-        </el-table-column>
-        <el-table-column
-                prop="province"
-                label="说明">
-        </el-table-column>
-      </el-table>
-    </template>
+
+    <el-table
+            :data="tableData3"
+            style="width: 100%">
+      <el-table-column
+              prop="date"
+              label="参数"
+              width="150">
+      </el-table-column>
+      <el-table-column
+              prop="name"
+              label="必须"
+              width="120">
+      </el-table-column>
+
+      <el-table-column
+              prop="province"
+              label="说明"
+              width="600">
+      </el-table-column>
+
+      <!--<el-table-column-->
+      <!--prop="province"-->
+      <!--label="省份"-->
+      <!--width="120">-->
+      <!--</el-table-column>-->
+      <!--<el-table-column-->
+      <!--prop="city"-->
+      <!--label="市区"-->
+      <!--width="120">-->
+      <!--</el-table-column>-->
+      <!--<el-table-column-->
+      <!--prop="address"-->
+      <!--label="地址"-->
+      <!--width="300">-->
+      <!--</el-table-column>-->
+      <!--<el-table-column-->
+      <!--prop="zip"-->
+      <!--label="邮编"-->
+      <!--width="120">-->
+      <!--</el-table-column>-->
+    </el-table>
+    <!--<template>-->
+      <!--<el-table-->
+              <!--:data="tableData3"-->
+              <!--style="width: 100%">-->
+        <!--<el-table-column align="center" width="85">-->
+          <!--<template scope="scope">-->
+            <!--<span>{{scope.row.date}}</span>-->
+          <!--</template>-->
+        <!--</el-table-column>-->
+
+        <!--<el-table-column align="center" width="85">-->
+          <!--<template scope="scope">-->
+            <!--<span>{{scope.row.name}}</span>-->
+          <!--</template>-->
+        <!--</el-table-column>-->
+
+        <!--<el-table-column align="center" width="85">-->
+          <!--<template scope="scope">-->
+            <!--<span>{{scope.row.province}}</span>-->
+          <!--</template>-->
+        <!--</el-table-column>-->
+      <!--</el-table>-->
+    <!--</template>-->
+
 
     <el-row>
       <el-col :span="24" style="margin-top: 20px">

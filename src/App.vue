@@ -20,7 +20,7 @@
 
             <el-container>
                 <el-aside width="15%" id="aside">
-                    <el-menu default-active="/activePublic" :router="true">
+
                         <div class="el-menu-title">
                             通讯录管理
                         </div>
@@ -195,7 +195,7 @@
     .el-main{
         border: 0;
         background-color: #ffffff;
-        overflow-x: hidden;
+        /*overflow-x: hidden;*/
     }
 
     #main-right{
@@ -256,7 +256,7 @@
         padding-top: 50px;
         position: fixed;
         overflow-y: scroll;
-        overflow-x: hidden;
+        /*overflow-x: hidden;*/
         text-align: center;
         height: -moz-calc(900px - 150px);
         height: -webkit-calc(900px - 150px);
