@@ -22,6 +22,23 @@
                 <el-aside width="15%" id="aside">
                     <el-menu default-active="/activePublic" :router="true">
                         <div class="el-menu-title">
+                            开发前必读
+                        </div>
+
+                        <el-menu-item index='/summary'>
+                            <span slot="title" class="li-text">概述</span>
+                        </el-menu-item>
+                        <el-menu-item index='/startDevelopment'>
+                            <span slot="title" class="li-text">开始开发</span>
+                        </el-menu-item>
+                        <el-menu-item index='/developerTools'>
+                            <span slot="title" class="li-text">开发者调试</span>
+                        </el-menu-item>
+                        <el-menu-item index='/updateLog'>
+                            <span slot="title" class="li-text">更新日志</span>
+                        </el-menu-item>
+
+                        <div class="el-menu-title">
                             通讯录管理
                         </div>
                         <el-submenu index="1">
@@ -285,19 +302,16 @@
     }
 
     .el-menu-title {
+        font-weight: 700;
         padding-top: 10%;
+        font-size: 14px;
         overflow: hidden;
         zoom: 1;
         height: 100%;
-        /*font-weight: 700;*/
         color: #999;
-        font-weight: 500;
         line-height: 32px;
         cursor: default;
-        /* margin-left: 13%; */
-        padding-left: 13%;
-        /* margin-top: 5%; */
-        /* padding: 0 40px; */
+        padding-left: 15%;
     }
 
     .el-submenu .el-menu-item {
@@ -316,6 +330,12 @@
         width: 6px;
         height: 6px;
         background-color: #F5F5F5;
+    }
+
+    .li-text{
+        padding-left: 10%;
+        overflow-x: hidden;
+        overflow-y: auto;
     }
 
 </style>

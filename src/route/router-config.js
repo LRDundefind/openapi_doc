@@ -23,6 +23,11 @@ import group4 from '../views/group4/index.vue'
 import group5 from '../views/group5/index.vue'
 import group6 from '../views/group6/index.vue'
 
+import summary from '../views/developersRead/summary.vue'
+import startDevelopment from '../views/developersRead/startDevelopment.vue'
+import developerTools from '../views/developersRead/developerTools.vue'
+import updateLog from '../views/developersRead/updateLog.vue'
+
 export default [
     {
         path: '/activeManage', component: totalpages,
@@ -68,4 +73,10 @@ export default [
     {path: '/group4', component: group4},
     {path: '/group5', component: group5},
     {path: '/group6', component: group6},
+
+    {path: '/summary', component: summary},
+    {path: '/startDevelopment', component: startDevelopment},
+    {path: '/developerTools', component: developerTools},
+    {path: '/updateLog', component: updateLog},
+
 ]
