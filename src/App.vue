@@ -20,7 +20,7 @@
 
             <el-container>
                 <el-aside width="15%" id="aside">
-                    <el-menu default-active="/activePublic" :router="true">
+                    <el-menu default-active="/createMember" :router="true">
                         <div class="el-menu-title">
                             开发前必读
                         </div>
@@ -43,8 +43,8 @@
                         </div>
                         <el-submenu index="1">
                             <template slot="title" class="is-active">成员管理</template>
-                            <el-menu-item index="/activePublic">创建成员</el-menu-item>
-                            <el-menu-item index="/group">读取成员</el-menu-item>
+                            <el-menu-item index="/createMember">创建成员</el-menu-item>
+                            <el-menu-item index="/readMember">读取成员</el-menu-item>
                             <!--<el-menu-item index="/activePublic">读取成员</el-menu-item>-->
                             <!--<el-menu-item index="/activePublic">读取成员</el-menu-item>-->
                         </el-submenu>
@@ -53,18 +53,18 @@
                             <template slot="title">部门管理</template>
                             <!--<el-menu-item-group>-->
                             <!--<template slot="title">分组一</template>-->
-                            <el-menu-item index="/group1">创建部门</el-menu-item>
-                            <el-menu-item index="/group2">更新部门</el-menu-item>
+                            <el-menu-item index="/establishDepartment">创建部门</el-menu-item>
+                            <el-menu-item index="/updateDepartment">更新部门</el-menu-item>
                             <!--</el-menu-item-group>-->
                         </el-submenu>
                         <el-submenu index="3">
                             <template slot="title">标签管理</template>
                             <!--<el-menu-item-group>-->
                             <!--<template slot="title">分组一</template>-->
-                            <el-menu-item index="/group3">创建标签</el-menu-item>
-                            <el-menu-item index="/group4">更新标签名字</el-menu-item>
-                            <el-menu-item index="/group5">删除标签</el-menu-item>
-                            <el-menu-item index="/group6">获取标签成员</el-menu-item>
+                            <el-menu-item index="/createLabel">创建标签</el-menu-item>
+                            <el-menu-item index="/UpdateName">更新标签名字</el-menu-item>
+                            <el-menu-item index="/deleteLabel">删除标签</el-menu-item>
+                            <el-menu-item index="/getMembers">获取标签成员</el-menu-item>
                             <!--</el-menu-item-group>-->
                             <!--<el-menu-item-group title="分组2">-->
                             <!--<el-menu-item index="3-3">选项3</el-menu-item>-->
@@ -107,7 +107,7 @@
         },
 
         created: function () {
-            this.$router.push('/activePublic');
+            this.$router.push('/createMember');
         },
         methods: {
             handleOpen(key, keyPath) {

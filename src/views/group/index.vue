@@ -95,26 +95,6 @@
                     width="600">
             </el-table-column>
 
-            <!--<el-table-column-->
-            <!--prop="province"-->
-            <!--label="省份"-->
-            <!--width="120">-->
-            <!--</el-table-column>-->
-            <!--<el-table-column-->
-            <!--prop="city"-->
-            <!--label="市区"-->
-            <!--width="120">-->
-            <!--</el-table-column>-->
-            <!--<el-table-column-->
-            <!--prop="address"-->
-            <!--label="地址"-->
-            <!--width="300">-->
-            <!--</el-table-column>-->
-            <!--<el-table-column-->
-            <!--prop="zip"-->
-            <!--label="邮编"-->
-            <!--width="120">-->
-            <!--</el-table-column>-->
         </el-table>
 
         <el-row>
@@ -182,40 +162,7 @@
                 currentType: '全部',
                 selectItems: [],
                 types: ['全部', '测试活动', '免费活动', '收费活动'],
-                tableData: [
-                    {
-                        id: '001',
-                        title: '王小虎',
-                        type: '测试活动',
-                        status: '已结束',
-                        readNum: 200,
-                        signUpNum: 100,
-                        auditNum: 100
-                    }, {
-                        id: '002',
-                        title: '王小虎',
-                        type: '测试活动',
-                        status: '已结束',
-                        readNum: 200,
-                        signUpNum: 100,
-                        auditNum: 100
-                    }, {
-                        id: '003',
-                        title: '王小虎',
-                        type: '测试活动',
-                        status: '已结束',
-                        readNum: 200,
-                        signUpNum: 100,
-                        auditNum: 100
-                    }, {
-                        id: '004',
-                        title: '王小虎',
-                        type: '测试活动',
-                        status: '已结束',
-                        readNum: 200,
-                        signUpNum: 100,
-                        auditNum: 100
-                    }],
+
                 Data: [
                     {
                         id: '001',
