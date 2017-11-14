@@ -1,17 +1,3 @@
-# 基于vue和Element的文档说明系统
-> 升级为vue@2.16 + Element@1.0.9
-## Build Setup
-
-``` bash
-# 克隆项目 
- git clone https://github.com/WebCodeFarmer/houtai.git
-
-# 查看目录
-ls
-
-# 进入项目目录
-cd houtai
-
 # 安装开发依赖,推荐使用npm安装，cnpm可能会丢包，或者各种兼容性问题
 npm install
 
