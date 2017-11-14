@@ -1,7 +1,7 @@
 <template>
  <el-container :style ="{height: clientHeight +'px'}" style="border: 1px solid #eee">
     <el-container>
-        <el-header id="head">
+        <el-header id="header">
             <el-row>
                 <el-col :span="17">
                     <img class="f-r" src="../static/logo.png" height="50" width="100"/>
@@ -76,7 +76,7 @@
                     </li>
                 </el-menu>
             </el-aside>
-            <el-main>
+            <el-main id="main-right">
                 <transition name="fade">
                     <router-view class="view"></router-view>
                 </transition>
@@ -138,7 +138,7 @@
             return {
                 active: true,
                 headerFixed: true,
-                clientHeight :document.documentElement.clientHeight-54,
+                clientHeight :document.documentElement.clientHeight,
             }
         },
 
@@ -157,15 +157,15 @@
 
         computed: {
             filteredTableData: function () {
-                var bodyheight =  document.documentElement.clientHeight;
-                alert(bodyheight);
+//                var bodyheight =  document.documentElement.clientHeight;
+//                alert(bodyheight);
 
             }
         },
         mounted(){
             const that = this;
             window.onresize = function temp() {
-                that.clientHeight = `${document.documentElement.clientHeight}` - 54;
+                that.clientHeight = `${document.documentElement.clientHeight}` ;
             }
         },
 
@@ -187,6 +187,7 @@
 
 <style>
 
+
     /*主体*/
     .el-main{
         border: 0;
@@ -194,6 +195,9 @@
         overflow-x: hidden;
     }
 
+    #main-right{
+        background-color: #ffffff;
+    }
 
     .el-submenu.is-active .el-submenu__title{
         padding-left: 15%!important;
@@ -301,12 +305,12 @@
     }
 
     .list-enter-active, .list-leave-active {
-        transition: all 1s;
+        transition: all .5s;
     }
 
     .list-enter, .list-leave-active {
         opacity: 0;
-        transform: translateX(30px);
+        transform: translateY(30px);
     }
 
     /* 导航栏菜单选中效果 */
@@ -417,6 +421,20 @@
 
     .el-submenu .el-menu-item {
         margin-left: 20px !important;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        min-height: 20px;
+        border-radius: 5px;
+        background-clip: content-box;
+        box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.2) inset;
+    }
+    /*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+    ::-webkit-scrollbar
+    {
+        width: 6px;
+        height: 6px;
+        background-color: #F5F5F5;
     }
 
 </style>
