@@ -375,8 +375,8 @@
         background: 0 0;
     }
 
-    .header img {
-        margin-left: 7%;
+     img {
+        margin-left: 1%;
     }
 
     .el-input {
