@@ -1,7 +1,7 @@
 <template>
- <el-container style="height: 700px; border: 1px solid #eee">
+ <el-container :style ="{height: clientHeight +'px'}" style="border: 1px solid #eee">
     <el-container>
-        <el-header>
+        <el-header id="head">
             <el-row>
                 <el-col :span="17">
                     <img class="f-r" src="../static/logo.png" height="50" width="100"/>
@@ -18,7 +18,7 @@
             </el-row>
         </el-header>
         <el-container>
-            <el-aside width="15%">
+            <el-aside width="15%" id="aside">
                 <el-menu default-active="/activePublic" :router="true">
                     <div class="el-menu-title">
                         通讯录管理
@@ -122,99 +122,9 @@
 
     <!--</main>-->
     <!--</div>-->
+ </el-container>>
 </template>
 
-
-<!--<template>-->
-<!--<div id="app">-->
-<!--&lt;!&ndash; 头部导航 &ndash;&gt;-->
-<!--<header class="header" :class="{ 'header-fixed' : headerFixed }">-->
-<!--<el-row>-->
-<!--<el-col :span="17">-->
-<!--<img class="f-r" src="../static/logo.png" height="50" width="100"/>-->
-<!--</el-col>-->
-<!--<el-col :span="1">-->
-<!--<i class="el-icon-search header-icon"></i>-->
-<!--</el-col>-->
-<!--<el-col :span="3">-->
-<!--<el-input class="el-input  f-l" placeholder="搜索"></el-input>-->
-<!--</el-col>-->
-<!--<el-col :span="3">-->
-<!--<h4 class="header-text">联系我们</h4>-->
-<!--</el-col>-->
-<!--</el-row>-->
-<!--</header>-->
-<!--&lt;!&ndash;<div v-show="headerFixed" style="position: relative;height: 60px;width: 100%;"></div>&ndash;&gt;-->
-
-<!--<main style="border: none">-->
-<!--&lt;!&ndash; 左侧导航 &ndash;&gt;-->
-<!--<div class="main-left">-->
-<!--<el-menu default-active="/activePublic" :router="true" >-->
-<!--<div class="el-menu-title">-->
-<!--通讯录管理-->
-<!--</div>-->
-<!--<el-submenu index="1">-->
-<!--<template slot="title" class="is-active">成员管理</template>-->
-<!--<el-menu-item index="/activePublic">创建成员</el-menu-item>-->
-<!--<el-menu-item index="/group">读取成员</el-menu-item>-->
-<!--&lt;!&ndash;<el-menu-item index="/activePublic">读取成员</el-menu-item>&ndash;&gt;-->
-<!--&lt;!&ndash;<el-menu-item index="/activePublic">读取成员</el-menu-item>&ndash;&gt;-->
-<!--</el-submenu>-->
-
-<!--<el-submenu index="2">-->
-<!--<template slot="title">部门管理</template>-->
-<!--&lt;!&ndash;<el-menu-item-group>&ndash;&gt;-->
-<!--&lt;!&ndash;<template slot="title">分组一</template>&ndash;&gt;-->
-<!--<el-menu-item index="/group1">创建部门</el-menu-item>-->
-<!--<el-menu-item index="/group2">更新部门</el-menu-item>-->
-<!--&lt;!&ndash;</el-menu-item-group>&ndash;&gt;-->
-<!--</el-submenu>-->
-<!--<el-submenu index="3">-->
-<!--<template slot="title">标签管理</template>-->
-<!--&lt;!&ndash;<el-menu-item-group>&ndash;&gt;-->
-<!--&lt;!&ndash;<template slot="title">分组一</template>&ndash;&gt;-->
-<!--<el-menu-item index="/group3">创建标签</el-menu-item>-->
-<!--<el-menu-item index="/group4">更新标签名字</el-menu-item>-->
-<!--<el-menu-item index="/group5">删除标签</el-menu-item>-->
-<!--<el-menu-item index="/group6">获取标签成员</el-menu-item>-->
-<!--&lt;!&ndash;<el-menu-item>选项5</el-menu-item>&ndash;&gt;-->
-<!--&lt;!&ndash;<el-menu-item>选项6</el-menu-item>&ndash;&gt;-->
-<!--&lt;!&ndash;<el-menu-item>选项7</el-menu-item>&ndash;&gt;-->
-<!--&lt;!&ndash;<el-menu-item>选项8</el-menu-item>&ndash;&gt;-->
-<!--&lt;!&ndash;<el-menu-item>选项9</el-menu-item>&ndash;&gt;-->
-<!--&lt;!&ndash;<el-menu-item>选项10</el-menu-item>&ndash;&gt;-->
-<!--&lt;!&ndash;<el-menu-item>选项11</el-menu-item>&ndash;&gt;-->
-<!--&lt;!&ndash;<el-menu-item>选项12</el-menu-item>&ndash;&gt;-->
-<!--&lt;!&ndash;<el-menu-item>选13</el-menu-item>&ndash;&gt;-->
-<!--&lt;!&ndash;<el-menu-item>选项14</el-menu-item>&ndash;&gt;-->
-<!--&lt;!&ndash;<el-menu-item>选项15</el-menu-item>&ndash;&gt;-->
-<!--&lt;!&ndash;<el-menu-item>选项16</el-menu-item>&ndash;&gt;-->
-<!--&lt;!&ndash;<el-menu-item>选项17</el-menu-item>&ndash;&gt;-->
-<!--&lt;!&ndash;<el-menu-item>选项18</el-menu-item>&ndash;&gt;-->
-<!--&lt;!&ndash;<el-menu-item>选项19</el-menu-item>&ndash;&gt;-->
-<!--&lt;!&ndash;<el-menu-item>选项20</el-menu-item>&ndash;&gt;-->
-<!--&lt;!&ndash;</el-menu-item-group>&ndash;&gt;-->
-<!--&lt;!&ndash;<el-menu-item-group title="分组2">&ndash;&gt;-->
-<!--&lt;!&ndash;<el-menu-item index="3-3">选项3</el-menu-item>&ndash;&gt;-->
-<!--&lt;!&ndash;</el-menu-item-group>&ndash;&gt;-->
-<!--&lt;!&ndash;<el-submenu index="3-4">&ndash;&gt;-->
-<!--&lt;!&ndash;<template slot="title">选项4</template>&ndash;&gt;-->
-<!--&lt;!&ndash;<el-menu-item index="3-4-1">选项4-1</el-menu-item>&ndash;&gt;-->
-<!--&lt;!&ndash;</el-submenu>&ndash;&gt;-->
-<!--</el-submenu>-->
-<!--<li style="min-height: 800px">-->
-<!--</li>-->
-<!--</el-menu>-->
-<!--</div>-->
-<!--&lt;!&ndash; 右侧主内容区 &ndash;&gt;-->
-<!--<div class="main-right">-->
-<!--<transition name="fade">-->
-<!--<router-view class="view"></router-view>-->
-<!--</transition>-->
-<!--</div>-->
-<!--</main>-->
-<!--</div>-->
-<!--</template>-->
 
 <script>
     import Vue from 'vue'
@@ -227,9 +137,11 @@
         data: function () {
             return {
                 active: true,
-                headerFixed: true
+                headerFixed: true,
+                clientHeight :document.documentElement.clientHeight-54,
             }
         },
+
         created: function () {
             this.$router.push('/activePublic');
         },
@@ -241,8 +153,23 @@
 //                console.log(key, keyPath);
             }
 
-
         },
+
+        computed: {
+            filteredTableData: function () {
+                var bodyheight =  document.documentElement.clientHeight;
+                alert(bodyheight);
+
+            }
+        },
+        mounted(){
+            const that = this;
+            window.onresize = function temp() {
+                that.clientHeight = `${document.documentElement.clientHeight}` - 54;
+            }
+        },
+
+
 //        watch: {
 //            '$route': function (to,from) {
 //                if(to.path == '/activePublic'){
@@ -255,6 +182,7 @@
 //        }
     }
 
+
 </script>
 
 <style>
@@ -262,13 +190,18 @@
     /*主体*/
     .el-main{
         border: 0;
+        background-color: #ffffff;
+        overflow-x: hidden;
     }
 
 
+    .el-submenu.is-active .el-submenu__title{
+        padding-left: 15%!important;
+    }
 
-
-
-
+    .el-submenu__title{
+        padding-left: 15%!important;
+    }
 
     body {
         margin: 0;
@@ -373,7 +306,7 @@
 
     .list-enter, .list-leave-active {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateX(30px);
     }
 
     /* 导航栏菜单选中效果 */
@@ -467,6 +400,7 @@
     }
 
     .el-menu-title {
+        padding-top: 10%;
         overflow: hidden;
         zoom: 1;
         height: 100%;

@@ -269,16 +269,11 @@
             }
         },
         computed: {
-            filteredTableData: function () {
-                var type = this.currentType;
-                return this.tableData.filter(function (data) {
-                    if (type == '全部' || type == '') {
-                        return true
-                    } else {
-                        return data.type == type
-                    }
-                })
-            }
+//            filteredTableData: function () {
+//                var type = this.currentType;
+//                return type;
+//                console.log(type);
+//            }
         },
         methods: {
 //            handleSelect: function (row, column, cell, event) {

@@ -75,32 +75,49 @@
       </el-col>
     </el-row>
 
-    <el-table
-            :data="tableData3"
-            style="width: 100%">
-      <el-table-column
-              prop="date"
-              label="参数"
-              width="150">
-      </el-table-column>
-      <el-table-column
-              prop="name"
-              label="必须"
-              width="120">
-      </el-table-column>
+    <!--<el-table-->
+            <!--:data="tableData3"-->
+            <!--style="width: 100%">-->
+      <!--<el-table-column-->
+              <!--prop="date"-->
+              <!--label="参数"-->
+              <!--width="150">-->
+      <!--</el-table-column>-->
+      <!--<el-table-column-->
+              <!--prop="name"-->
+              <!--label="必须"-->
+              <!--width="120">-->
+      <!--</el-table-column>-->
 
-      <el-table-column
-              prop="province"
-              label="说明"
-              width="600">
-      </el-table-column>
+      <!--<el-table-column-->
+              <!--prop="province"-->
+              <!--label="说明"-->
+              <!--width="600">-->
+      <!--</el-table-column>-->
 
-    </el-table>
-
-
+    <!--</el-table>-->
 
 
-
+    <template>
+      <el-table
+              :data="tableData3"
+              style="width: 100%">
+        <el-table-column
+                prop="date"
+                label="参数"
+                width="180">
+        </el-table-column>
+        <el-table-column
+                prop="name"
+                label="必须"
+                width="180">
+        </el-table-column>
+        <el-table-column
+                prop="province"
+                label="说明">
+        </el-table-column>
+      </el-table>
+    </template>
 
     <el-row>
       <el-col :span="24" style="margin-top: 20px">
@@ -120,9 +137,8 @@
       </el-col>
     </el-row>
 
-    <div class="create-content">
+    <div class="create-content" style="margin-bottom: 50px">
       <ol>
-
         <li>
           <code class="code"><span class="pun">{</span></code>
         </li>
@@ -168,40 +184,58 @@
                 currentType: '全部',
                 selectItems: [],
                 types: ['全部', '测试活动', '免费活动', '收费活动'],
-                tableData: [
-                    {
-                        id: '001',
-                        title: '王小虎',
-                        type: '测试活动',
-                        status: '已结束',
-                        readNum: 200,
-                        signUpNum: 100,
-                        auditNum: 100
-                    }, {
-                        id: '002',
-                        title: '王小虎',
-                        type: '测试活动',
-                        status: '已结束',
-                        readNum: 200,
-                        signUpNum: 100,
-                        auditNum: 100
-                    }, {
-                        id: '003',
-                        title: '王小虎',
-                        type: '测试活动',
-                        status: '已结束',
-                        readNum: 200,
-                        signUpNum: 100,
-                        auditNum: 100
-                    }, {
-                        id: '004',
-                        title: '王小虎',
-                        type: '测试活动',
-                        status: '已结束',
-                        readNum: 200,
-                        signUpNum: 100,
-                        auditNum: 100
-                    }],
+                tableData1: [{
+                    date: '2016-05-02',
+                    name: '王小虎',
+                    address: '上海市普陀区金沙江路 1518 弄'
+                }, {
+                    date: '2016-05-04',
+                    name: '王小虎',
+                    address: '上海市普陀区金沙江路 1517 弄'
+                }, {
+                    date: '2016-05-01',
+                    name: '王小虎',
+                    address: '上海市普陀区金沙江路 1519 弄'
+                }, {
+                    date: '2016-05-03',
+                    name: '王小虎',
+                    address: '上海市普陀区金沙江路 1516 弄'
+                }],
+
+//                tableData: [
+//                    {
+//                        id: '001',
+//                        title: '王小虎',
+//                        type: '测试活动',
+//                        status: '已结束',
+//                        readNum: 200,
+//                        signUpNum: 100,
+//                        auditNum: 100
+//                    }, {
+//                        id: '002',
+//                        title: '王小虎',
+//                        type: '测试活动',
+//                        status: '已结束',
+//                        readNum: 200,
+//                        signUpNum: 100,
+//                        auditNum: 100
+//                    }, {
+//                        id: '003',
+//                        title: '王小虎',
+//                        type: '测试活动',
+//                        status: '已结束',
+//                        readNum: 200,
+//                        signUpNum: 100,
+//                        auditNum: 100
+//                    }, {
+//                        id: '004',
+//                        title: '王小虎',
+//                        type: '测试活动',
+//                        status: '已结束',
+//                        readNum: 200,
+//                        signUpNum: 100,
+//                        auditNum: 100
+//                    }],
                 Data: [
                     {
                         id: '001',
@@ -253,18 +287,18 @@
 
             }
         },
-        computed: {
-            filteredTableData: function () {
-                var type = this.currentType;
-                return this.tableData.filter(function (data) {
-                    if (type == '全部' || type == '') {
-                        return true
-                    } else {
-                        return data.type == type
-                    }
-                })
-            }
-        },
+//        computed: {
+//            filteredTableData: function () {
+//                var type = this.currentType;
+//                return this.tableData.filter(function (data) {
+//                    if (type == '全部' || type == '') {
+//                        return true
+//                    } else {
+//                        return data.type == type
+//                    }
+//                })
+//            }
+//        },
         methods: {
 //            handleSelect: function (row, column, cell, event) {
 //                if (column.label == '操作') {
@@ -374,4 +408,5 @@
   .allActive .head span {
     font-size: 16px;
   }
+
 </style>
