@@ -1,5 +1,5 @@
 <template>
-    <el-container :style ="{height: clientHeight +'px'}" style="border: 1px solid #eee">
+    <el-container :style="{height: clientHeight +'px'}" style="border: 1px solid #eee">
         <el-container>
             <el-header id="header">
                 <el-row>
@@ -20,7 +20,7 @@
 
             <el-container>
                 <el-aside width="15%" id="aside">
-
+                    <el-menu default-active="/activePublic" :router="true">
                         <div class="el-menu-title">
                             通讯录管理
                         </div>
@@ -48,22 +48,6 @@
                             <el-menu-item index="/group4">更新标签名字</el-menu-item>
                             <el-menu-item index="/group5">删除标签</el-menu-item>
                             <el-menu-item index="/group6">获取标签成员</el-menu-item>
-                            <!--<el-menu-item>选项5</el-menu-item>-->
-                            <!--<el-menu-item>选项6</el-menu-item>-->
-                            <!--<el-menu-item>选项7</el-menu-item>-->
-                            <!--<el-menu-item>选项8</el-menu-item>-->
-                            <!--<el-menu-item>选项9</el-menu-item>-->
-                            <!--<el-menu-item>选项10</el-menu-item>-->
-                            <!--<el-menu-item>选项11</el-menu-item>-->
-                            <!--<el-menu-item>选项12</el-menu-item>-->
-                            <!--<el-menu-item>选13</el-menu-item>-->
-                            <!--<el-menu-item>选项14</el-menu-item>-->
-                            <!--<el-menu-item>选项15</el-menu-item>-->
-                            <!--<el-menu-item>选项16</el-menu-item>-->
-                            <!--<el-menu-item>选项17</el-menu-item>-->
-                            <!--<el-menu-item>选项18</el-menu-item>-->
-                            <!--<el-menu-item>选项19</el-menu-item>-->
-                            <!--<el-menu-item>选项20</el-menu-item>-->
                             <!--</el-menu-item-group>-->
                             <!--<el-menu-item-group title="分组2">-->
                             <!--<el-menu-item index="3-3">选项3</el-menu-item>-->
@@ -86,48 +70,8 @@
                 </el-main>
             </el-container>
         </el-container>
-
-
-        <!--<div id="app">-->
-        <!--&lt;!&ndash; 头部导航 &ndash;&gt;-->
-        <!--<header class="header">-->
-        <!--<div class="container">-->
-        <!--<img src="./assets/logo.png" alt="logo" class="logo">-->
-        <!--<ul class="nav">-->
-        <!--<li class="nav-item"><el-input placeholder="搜索文档"></el-input></li>-->
-        <!--<li class="nav-item"><router-link :to="'/guide'">指南</router-link></li>-->
-        <!--<li class="nav-item"><router-link :to="'/component'">组件</router-link></li>-->
-        <!--<li class="nav-item"><router-link :to="'/resource'">资源</router-link></li>-->
-        <!--</ul>-->
-        <!--</div>-->
-        <!--</header>-->
-
-        <!--<main>-->
-
-        <!--<div class="page-container">-->
-        <!--<div class="left">-->
-        <!--<div class="aside">-->
-        <!--<h4>组件</h4>-->
-        <!--<ul class="side-nav">-->
-        <!--<li class="nav-item"><router-link :to="{name:'component/uploadCover'}">封面上传</router-link></li>-->
-        <!--<li class="nav-item"><router-link :to="{name:'component/assignDialog'}">部门，人员，标签选择</router-link></li>-->
-        <!--</ul>-->
-        <!--</div>-->
-        <!--</div>-->
-
-        <!--&lt;!&ndash; 右侧主内容区 &ndash;&gt;-->
-        <!--<div  class="right">-->
-        <!--<div class="comMain">-->
-        <!--<router-view></router-view>-->
-        <!--</div>-->
-        <!--</div>-->
-        <!--</div>-->
-
-        <!--</main>-->
-        <!--</div>-->
-    </el-container>>
+    </el-container>
 </template>
-
 
 <script>
     import Vue from 'vue'
@@ -141,7 +85,7 @@
             return {
                 active: true,
                 headerFixed: true,
-                clientHeight :document.documentElement.clientHeight,
+                clientHeight: document.documentElement.clientHeight,
             }
         },
 
@@ -168,46 +112,31 @@
         mounted(){
             const that = this;
             window.onresize = function temp() {
-                that.clientHeight = `${document.documentElement.clientHeight}` ;
+                that.clientHeight = `${document.documentElement.clientHeight}`;
             }
-        },
-
-
-//        watch: {
-//            '$route': function (to,from) {
-//                if(to.path == '/activePublic'){
-//                    this.active = true ;
-//                }
-//                else if(to.path == '/activeManage'){
-//                   this.active = false ;
-//                }
-//            }
-//        }
+        }
     }
-
 
 </script>
 
 <style>
-
-
     /*主体*/
-    .el-main{
+    .el-main {
         border: 0;
         background-color: #ffffff;
         /*overflow-x: hidden;*/
     }
 
-    #main-right{
+    #main-right {
         background-color: #ffffff;
     }
 
-    .el-submenu.is-active .el-submenu__title{
-        padding-left: 15%!important;
+    .el-submenu.is-active .el-submenu__title {
+        padding-left: 15% !important;
     }
 
-    .el-submenu__title{
-        padding-left: 15%!important;
+    .el-submenu__title {
+        padding-left: 15% !important;
     }
 
     body {
@@ -324,58 +253,7 @@
     #app main .aside .is-active {
         color: #475669;
     }
-
-    /*!* 卡片 *!*/
-    /*.el-card {*/
-    /*overflow: visible !important;*/
-    /*}*/
-
-    /*.el-menu-vertical-demo:not(.el-menu--collapse) {*/
-    /*width: 200px;*/
-    /*min-height: 400px;*/
-    /*}*/
-
-    /*.el-header {*/
-    /*background-color: #B3C0D1;*/
-    /*color: #333;*/
-    /*line-height: 60px;*/
-    /*}*/
-
-    /*.el-aside {*/
-    /*color: #333;*/
-    /*}*/
-
-    /*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
-    .main-left::-webkit-scrollbar { /*滚动条整体样式*/
-        /*width: 8px; !*高宽分别对应横竖滚动的尺寸*!*/
-        /*height: 4px;*/
-        /*background-color: rgb(204, 204, 204);*/
-        width: 8px;
-        height: 10px;
-    }
-
-    .main-left::-webkit-scrollbar-corner {
-        background-color: transparent;
-    }
-
-    /*定义滑块 内阴影+圆角*/
-    .main-left::-webkit-scrollbar-thumb { /*滚动条里面的小方块*/
-        /*border-radius: 5px;*/
-        /*-webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);*/
-        /*background-color: #ccc;*/
-        background-color: #ccc;
-        border-radius: 5px;
-    }
-
-    /*定义滚动条轨道 内阴影+圆角*/
-    .main-left::-webkit-scrollbar-track { /*滚动条里面轨道*/
-        /*-webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.01);*/
-        /*border-radius: 10px;*/
-        /*background: #EDEDED;*/
-        background: 0 0;
-    }
-
-     img {
+    img {
         margin-left: 1%;
     }
 
@@ -432,9 +310,9 @@
         background-clip: content-box;
         box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.2) inset;
     }
+
     /*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
-    ::-webkit-scrollbar
-    {
+    ::-webkit-scrollbar {
         width: 6px;
         height: 6px;
         background-color: #F5F5F5;
