@@ -134,7 +134,7 @@
             </el-col>
         </el-row>
 
-        <div class="create-content">
+        <div class="create-content" style="margin-bottom: 50px">
             <ol>
 
                 <li>
