@@ -1,10 +1,9 @@
 # 基于vue和Element的文档说明系统
-> 升级为vue@2.16 + Element@1.0.9
+> 升级为vue@2.16 + Element@2.0.4
 ## Build Setup
 
 ``` bash
 # 克隆项目 
- git clone https://github.com/WebCodeFarmer/houtai.git
 
 # 查看目录
 ls
