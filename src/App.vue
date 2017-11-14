@@ -78,7 +78,7 @@
                     </el-menu>
                 </el-aside>
                 <el-main id="main-right">
-                    <div>
+                    <div class="group view">
                         <transition name="fade">
                             <router-view class="view"></router-view>
                         </transition>
