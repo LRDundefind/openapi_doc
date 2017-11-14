@@ -9,6 +9,9 @@ npm install
 # 运行
 npm run dev
 
+# 如element UI 报错请更新
+npm install element-ui@latest -S
+
 # 打包压缩
 npm run build
 ```
