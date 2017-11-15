@@ -7,7 +7,6 @@ import VueResource from 'vue-resource'
 import routeConfig from './route/index'
 import 'element-ui/lib/theme-chalk/index.css';
 
-
 import store from './store.js'
 
 //加载路由中间件

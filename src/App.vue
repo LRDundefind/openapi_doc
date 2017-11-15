@@ -79,7 +79,7 @@
                     </el-menu>
                 </el-aside>
                 <el-main id="main-right">
-                    <div class="group view">
+                    <div class="view">
                         <transition name="fade">
                             <router-view class="view"></router-view>
                         </transition>
@@ -336,6 +336,12 @@
         padding-left: 10%;
         overflow-x: hidden;
         overflow-y: auto;
+    }
+    .group{
+        width: 70%;
+        margin: 0!important;
+        padding-left: 25%;
+        /*margin-left: 15%;*/
     }
 
 </style>
