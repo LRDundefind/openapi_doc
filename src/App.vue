@@ -38,7 +38,7 @@
                             <span slot="title" class="li-text">更新日志</span>
                         </el-menu-item>
 
-                        <div class="el-menu-title">
+                        <div class="el-menu-title" style="margin-top: -8%">
                             通讯录管理
                         </div>
                         <el-submenu index="1">
@@ -188,41 +188,40 @@
     }
 
     /* 主内容区 */
-    main {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        /*min-height: 800px;*/
-        border: solid 40px #E9ECF1;
-        background-color: #FCFCFC;
-    }
+    /*main {*/
+        /*display: -webkit-box;*/
+        /*display: -ms-flexbox;*/
+        /*display: flex;*/
+        /*!*min-height: 800px;*!*/
+        /*border: solid 40px #E9ECF1;*/
+        /*background-color: #FCFCFC;*/
+    /*}*/
 
-    main .main-left {
-        width: 15%;
-        padding-top: 50px;
-        position: fixed;
-        overflow-y: scroll;
-        /*overflow-x: hidden;*/
-        text-align: center;
-        height: -moz-calc(900px - 150px);
-        height: -webkit-calc(900px - 150px);
-        height: calc(900px - 1px);
-        background-color: rgb(237, 239, 242);
-        max-height: 900px;
-    }
+    /*main .main-left {*/
+        /*width: 15%;*/
+        /*padding-top: 50px;*/
+        /*position: fixed;*/
+        /*overflow-y: scroll;*/
+        /*!*overflow-x: hidden;*!*/
+        /*text-align: center;*/
+        /*height: -moz-calc(900px - 150px);*/
+        /*height: -webkit-calc(900px - 150px);*/
+        /*height: calc(900px - 1px);*/
+        /*background-color: rgb(237, 239, 242);*/
+        /*max-height: 900px;*/
+    /*}*/
 
-    main .main-right {
-        -webkit-box-flex: 1;
-        -ms-flex: 1;
-        flex: 1;
-        background-color: #fff;
-        padding: 50px 70px;
-        padding-left: 20.8%;
-    }
+    /*main .main-right {*/
+        /*-webkit-box-flex: 1;*/
+        /*-ms-flex: 1;*/
+        /*flex: 1;*/
+        /*background-color: #fff;*/
+        /*padding: 50px 70px;*/
+        /*padding-left: 20.8%;*/
+    /*}*/
 
     main .el-menu {
         background-color: transparent !important;
-        /*min-height: 1000px;*/
     }
 
     /*  */
