@@ -340,7 +340,7 @@
     .group{
         width: 70%;
         margin: 0!important;
-        padding-left: 25%;
+        padding-left: 25%!important;
         /*margin-left: 15%;*/
     }
 

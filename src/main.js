@@ -4,7 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
-import routeConfig from './route/index'
+import routeConfig from './router/index'
 import 'element-ui/lib/theme-chalk/index.css';
 
 import store from './store.js'
