@@ -11,17 +11,17 @@ import 'element-ui/lib/theme-chalk/index.css';
 import store from './store.js'
 
 //加载路由中间件
-Vue.use(VueRouter)
-Vue.use(VueResource)
+Vue.use(VueRouter);
+Vue.use(VueResource);
 
 //定义路由
 const router = new VueRouter({
   routes: routeConfig
-})
+});
 
 new Vue({
   router,
   store,
   el: "#app",
   render: h => h(App)
-})
+});

@@ -1,19 +1,18 @@
-import summary from '@/views/preface/summary.vue'
-import startDevelopment from '@/views/preface/startDevelopment.vue'
-import developerTools from '@/views/preface/developerTools.vue'
-import updateLog from '@/views/preface/updateLog.vue'
+import summary from '@/views/preface/summary'
+import startDevelopment from '@/views/preface/startDevelopment'
+import developerTools from '@/views/preface/developerTools'
+import updateLog from '@/views/preface/updateLog'
 
-import createMember from '@/views/member/createMember.vue'
-import readMember from '@/views/member/readMember.vue'
+import createMember from '@/views/member/createMember'
+import readMember from '@/views/member/readMember'
 
-import establishDepartment from '@/views/department/establishDepartment.vue'
-import updateDepartment from '@/views/department/updateDepartment.vue'
+import establishDepartment from '@/views/department/establishDepartment'
+import updateDepartment from '@/views/department/updateDepartment'
 
-import createLabel from '@/views/label/createLabel.vue'
-import updateName from '@/views/label/updateName.vue'
-import deleteLabel from '@/views/label/deleteLabel.vue'
-import getMembers from '@/views/label/getMembers.vue'
-
+import createLabel from '@/views/label/createLabel'
+import updateName from '@/views/label/updateName'
+import deleteLabel from '@/views/label/deleteLabel'
+import getMembers from '@/views/label/getMembers'
 
 export default [
     {path: '/summary', name: "summary", component: summary},
