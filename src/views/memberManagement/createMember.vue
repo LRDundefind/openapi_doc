@@ -97,20 +97,27 @@
 
         <!--</el-table>-->
 
-        <table>
-            <tr>
-                <th>Firstname</th>
-                <th>Lastname</th>
-            </tr>
-            <tr>
-                <td>Peter</td>
-                <td>Griffin</td>
-            </tr>
-            <tr>
-                <td>Lois</td>
-                <td>Griffin</td>
-            </tr>
-        </table>
+        <el-table
+                :data="tableData3"
+                style="width: 100%">
+            <el-table-column
+                    prop="date"
+                    label="参数"
+                    width="150">
+            </el-table-column>
+            <el-table-column
+                    prop="name"
+                    label="必须"
+                    width="120">
+            </el-table-column>
+
+            <el-table-column
+                    prop="province"
+                    label="说明"
+                    width="600">
+            </el-table-column>
+
+        </el-table>
 
 
 
@@ -200,35 +207,35 @@
                         type: '"jackzhang"',
                     }],
 
-//                tableData3: [{
-//                    date: 'access_token',
-//                    name: '是',
-//                    province: '调用接口凭证',
-//                }, {
-//                    date: 'userid',
-//                    name: '是',
-//                    province: '成员UserID。对应管理端的帐号，企业内必须唯一。不区分大小写，长度为1~64个字节',
-//                }, {
-//                    date: 'name',
-//                    name: '是',
-//                    province: '成员名称。长度为1~64个字节',
-//                }, {
-//                    date: 'english_name',
-//                    name: '否',
-//                    province: '英文名。长度为1-64个字节。',
-//                }, {
-//                    date: 'mobile',
-//                    name: '否',
-//                    province: '手机号码。企业内必须唯一，mobile/email二者不能同时为空',
-//                }, {
-//                    date: 'department',
-//                    name: '是',
-//                    province: '成员所属部门id列表,不超过20个',
-//                }, {
-//                    date: 'order',
-//                    name: '否',
-//                    province: '部门内的排序值，默认为0。数量必须和department一致，数值越大排序越前面。有效的值范围是[0, 2^32)',
-//                }]
+                tableData3: [{
+                    date: 'access_token',
+                    name: '是',
+                    province: '调用接口凭证',
+                }, {
+                    date: 'userid',
+                    name: '是',
+                    province: '成员UserID。对应管理端的帐号，企业内必须唯一。不区分大小写，长度为1~64个字节',
+                }, {
+                    date: 'name',
+                    name: '是',
+                    province: '成员名称。长度为1~64个字节',
+                }, {
+                    date: 'english_name',
+                    name: '否',
+                    province: '英文名。长度为1-64个字节。',
+                }, {
+                    date: 'mobile',
+                    name: '否',
+                    province: '手机号码。企业内必须唯一，mobile/email二者不能同时为空',
+                }, {
+                    date: 'department',
+                    name: '是',
+                    province: '成员所属部门id列表,不超过20个',
+                }, {
+                    date: 'order',
+                    name: '否',
+                    province: '部门内的排序值，默认为0。数量必须和department一致，数值越大排序越前面。有效的值范围是[0, 2^32)',
+                }]
 
             }
         },
