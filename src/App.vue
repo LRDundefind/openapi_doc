@@ -1,6 +1,6 @@
 <template>
     <el-container :style="{height: clientHeight +'px'}" style="border: 1px solid #eee">
-        <el-container>
+            <el-container>
             <el-header id="header">
                 <el-row>
                     <el-col :span="17">
@@ -65,16 +65,8 @@
                             <el-menu-item index="/UpdateName">更新标签名字</el-menu-item>
                             <el-menu-item index="/deleteLabel">删除标签</el-menu-item>
                             <el-menu-item index="/getMembers">获取标签成员</el-menu-item>
-                            <!--</el-menu-item-group>-->
-                            <!--<el-menu-item-group title="分组2">-->
-                            <!--<el-menu-item index="3-3">选项3</el-menu-item>-->
-                            <!--</el-menu-item-group>-->
-                            <!--<el-submenu index="3-4">-->
-                            <!--<template slot="title">选项4</template>-->
-                            <!--<el-menu-item index="3-4-1">选项4-1</el-menu-item>-->
-                            <!--</el-submenu>-->
                         </el-submenu>
-                        <li style="min-height: 800px">
+                        <li style="min-height: 500px">
                         </li>
                     </el-menu>
                 </el-aside>
@@ -89,6 +81,9 @@
         </el-container>
     </el-container>
 </template>
+
+
+
 
 <script>
     import Vue from 'vue'
