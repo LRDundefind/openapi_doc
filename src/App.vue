@@ -1,88 +1,88 @@
 <template>
-    <el-container :style="{height: clientHeight +'px'}" style="border: 1px solid #eee">
-            <el-container>
-            <el-header id="header">
-                <el-row>
-                    <el-col :span="17">
-                        <img class="f-r" src="../static/logo.png" height="50" width="100"/>
-                    </el-col>
-                    <el-col :span="1">
-                        <i class="el-icon-search header-icon"></i>
-                    </el-col>
-                    <el-col :span="3">
-                        <el-input class="el-input  f-l" placeholder="搜索"></el-input>
-                    </el-col>
-                    <el-col :span="3">
-                        <h4 class="header-text">联系我们</h4>
-                    </el-col>
-                </el-row>
-            </el-header>
-
-            <el-container>
-                <el-aside width="15%" id="aside">
-                    <el-menu default-active="/createMember" :router="true">
-                        <div class="el-menu-title">
-                            开发前必读
-                        </div>
-
-                        <el-menu-item index='/summary'>
-                            <span slot="title" class="li-text">概述</span>
-                        </el-menu-item>
-                        <el-menu-item index='/startDevelopment'>
-                            <span slot="title" class="li-text">开始开发</span>
-                        </el-menu-item>
-                        <el-menu-item index='/developerTools'>
-                            <span slot="title" class="li-text">开发者调试</span>
-                        </el-menu-item>
-                        <el-menu-item index='/updateLog'>
-                            <span slot="title" class="li-text">更新日志</span>
-                        </el-menu-item>
-
-                        <div class="el-menu-title" style="margin-top: -8%">
-                            通讯录管理
-                        </div>
-                        <el-submenu index="1">
-                            <template slot="title" class="is-active">成员管理</template>
-                            <el-menu-item index="/createMember">创建成员</el-menu-item>
-                            <el-menu-item index="/readMember">读取成员</el-menu-item>
-                            <!--<el-menu-item index="/activePublic">读取成员</el-menu-item>-->
-                            <!--<el-menu-item index="/activePublic">读取成员</el-menu-item>-->
-                        </el-submenu>
-
-                        <el-submenu index="2">
-                            <template slot="title">部门管理</template>
-                            <!--<el-menu-item-group>-->
-                            <!--<template slot="title">分组一</template>-->
-                            <el-menu-item index="/establishDepartment">创建部门</el-menu-item>
-                            <el-menu-item index="/updateDepartment">更新部门</el-menu-item>
-                            <!--</el-menu-item-group>-->
-                        </el-submenu>
-                        <el-submenu index="3">
-                            <template slot="title">标签管理</template>
-                            <!--<el-menu-item-group>-->
-                            <!--<template slot="title">分组一</template>-->
-                            <el-menu-item index="/createLabel">创建标签</el-menu-item>
-                            <el-menu-item index="/UpdateName">更新标签名字</el-menu-item>
-                            <el-menu-item index="/deleteLabel">删除标签</el-menu-item>
-                            <el-menu-item index="/getMembers">获取标签成员</el-menu-item>
-                        </el-submenu>
-                        <li style="min-height: 500px">
-                        </li>
-                    </el-menu>
-                </el-aside>
-                <el-main id="main-right">
-                    <div class="view">
-                        <transition name="fade">
-                            <router-view class="view"></router-view>
-                        </transition>
+    <!--<el-container :style="{height: clientHeight +'px'}" style="border: 1px solid #eee">-->
+    <el-container style="border: 1px solid #eee">
+        <el-header id="header">
+            <el-row>
+                <el-col :span="17">
+                    <img class="f-r" src="../static/logo.png" height="50" width="100"/>
+                </el-col>
+                <el-col :span="1">
+                    <i class="el-icon-search header-icon"></i>
+                </el-col>
+                <el-col :span="3">
+                    <el-input class="el-input  f-l" placeholder="搜索"></el-input>
+                </el-col>
+                <el-col :span="3">
+                    <h4 class="header-text">联系我们</h4>
+                    <!--<router-link to="/address">联系我们</router-link>-->
+                </el-col>
+            </el-row>
+        </el-header>
+        <el-main>
+        <el-container  :style="{height: clientHeight +'px'}">
+            <el-aside width="15%" id="aside">
+                <el-menu default-active="/createMember" :router="true">
+                    <div class="el-menu-title">
+                        开发前必读
                     </div>
-                </el-main>
-            </el-container>
+                    <el-menu-item index='/summary'>
+                        <span slot="title" class="li-text">概述</span>
+                    </el-menu-item>
+                    <el-menu-item index='/startDevelopment'>
+                        <span slot="title" class="li-text">开始开发</span>
+                    </el-menu-item>
+                    <el-menu-item index='/developerTools'>
+                        <span slot="title" class="li-text">开发者调试</span>
+                    </el-menu-item>
+                    <el-menu-item index='/updateLog'>
+                        <span slot="title" class="li-text">更新日志</span>
+                    </el-menu-item>
+
+                    <div class="el-menu-title" style="margin-top: -8%">
+                        通讯录管理
+                    </div>
+                    <el-submenu index="1">
+                        <template slot="title" class="is-active">成员管理</template>
+                        <el-menu-item index="/createMember">创建成员</el-menu-item>
+                        <el-menu-item index="/readMember">读取成员</el-menu-item>
+                        <!--<el-menu-item index="/activePublic">读取成员</el-menu-item>-->
+                        <!--<el-menu-item index="/activePublic">读取成员</el-menu-item>-->
+                    </el-submenu>
+
+                    <el-submenu index="2">
+                        <template slot="title">部门管理</template>
+                        <!--<el-menu-item-group>-->
+                        <!--<template slot="title">分组一</template>-->
+                        <el-menu-item index="/establishDepartment">创建部门</el-menu-item>
+                        <el-menu-item index="/updateDepartment">更新部门</el-menu-item>
+                        <!--</el-menu-item-group>-->
+                    </el-submenu>
+                    <el-submenu index="3">
+                        <template slot="title">标签管理</template>
+                        <!--<el-menu-item-group>-->
+                        <!--<template slot="title">分组一</template>-->
+                        <el-menu-item index="/createLabel">创建标签</el-menu-item>
+                        <el-menu-item index="/UpdateName">更新标签名字</el-menu-item>
+                        <el-menu-item index="/deleteLabel">删除标签</el-menu-item>
+                        <el-menu-item index="/getMembers">获取标签成员</el-menu-item>
+                    </el-submenu>
+                    <li style="min-height: 500px">
+                    </li>
+                </el-menu>
+            </el-aside>
+
+            <el-main id="main-right">
+                <div class="view">
+                    <transition name="fade">
+                        <router-view class="view"></router-view>
+                    </transition>
+                </div>
+            </el-main>
         </el-container>
+        </el-main>
     </el-container>
+    <!--</el-container>-->
 </template>
-
-
 
 
 <script>
@@ -133,9 +133,14 @@
 
 <style>
     /*主体*/
+    body{
+        overflow-y: hidden;
+    }
+
     .el-main {
         border: 0;
         background-color: #ffffff;
+        padding: 0!important;
         /*overflow-x: hidden;*/
     }
 
@@ -184,35 +189,35 @@
 
     /* 主内容区 */
     /*main {*/
-        /*display: -webkit-box;*/
-        /*display: -ms-flexbox;*/
-        /*display: flex;*/
-        /*!*min-height: 800px;*!*/
-        /*border: solid 40px #E9ECF1;*/
-        /*background-color: #FCFCFC;*/
+    /*display: -webkit-box;*/
+    /*display: -ms-flexbox;*/
+    /*display: flex;*/
+    /*!*min-height: 800px;*!*/
+    /*border: solid 40px #E9ECF1;*/
+    /*background-color: #FCFCFC;*/
     /*}*/
 
     /*main .main-left {*/
-        /*width: 15%;*/
-        /*padding-top: 50px;*/
-        /*position: fixed;*/
-        /*overflow-y: scroll;*/
-        /*!*overflow-x: hidden;*!*/
-        /*text-align: center;*/
-        /*height: -moz-calc(900px - 150px);*/
-        /*height: -webkit-calc(900px - 150px);*/
-        /*height: calc(900px - 1px);*/
-        /*background-color: rgb(237, 239, 242);*/
-        /*max-height: 900px;*/
+    /*width: 15%;*/
+    /*padding-top: 50px;*/
+    /*position: fixed;*/
+    /*overflow-y: scroll;*/
+    /*!*overflow-x: hidden;*!*/
+    /*text-align: center;*/
+    /*height: -moz-calc(900px - 150px);*/
+    /*height: -webkit-calc(900px - 150px);*/
+    /*height: calc(900px - 1px);*/
+    /*background-color: rgb(237, 239, 242);*/
+    /*max-height: 900px;*/
     /*}*/
 
     /*main .main-right {*/
-        /*-webkit-box-flex: 1;*/
-        /*-ms-flex: 1;*/
-        /*flex: 1;*/
-        /*background-color: #fff;*/
-        /*padding: 50px 70px;*/
-        /*padding-left: 20.8%;*/
+    /*-webkit-box-flex: 1;*/
+    /*-ms-flex: 1;*/
+    /*flex: 1;*/
+    /*background-color: #fff;*/
+    /*padding: 50px 70px;*/
+    /*padding-left: 20.8%;*/
     /*}*/
 
     main .el-menu {
@@ -264,6 +269,7 @@
     #app main .aside .is-active {
         color: #475669;
     }
+
     img {
         margin-left: 1%;
     }
@@ -326,15 +332,16 @@
         background-color: #F5F5F5;
     }
 
-    .li-text{
+    .li-text {
         padding-left: 10%;
         overflow-x: hidden;
         overflow-y: auto;
     }
-    .group{
+
+    .group {
         width: 70%;
-        margin: 0!important;
-        padding-left: 25%!important;
+        margin: 0 !important;
+        padding-left: 25% !important;
         /*margin-left: 15%;*/
     }
 
