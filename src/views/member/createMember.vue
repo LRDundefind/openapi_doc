@@ -18,37 +18,16 @@
         </el-row>
 
         <div class="create-content">
-             <textarea class="form-control" id="json-input" rows="15" style="resize: vertical;">
-                 {
-                  "id": 1001,
-                  "type": "donut",
-                  "name": "Cake",
-                  "description": "http://www.jq22.com",
-                  "price": 2.55,
-                  "available": {
-                   store: 42,
-                   warehouse: 600
-                   },
-                   "topping": [
-                   { "id": 5001, "type": "None" },
-                   { "id": 5002, "type": "Glazed" },
-                   { "id": 5005, "type": "Sugar" },
-                   { "id": 5003, "type": "Chocolate" },
-                   { "id": 5004, "type": "Maple" }
-                   ]
-                 }
+             <textarea class="form-control" id="json-input" @input="handelJson()" rows="15" style="resize: vertical;">
+
              </textarea>
         </div>
         <label class="checkbox-inline">
-            <input type="checkbox" id="collapsed">
+            <input type="checkbox" id="collapsed" @click="handleCollapsed()">
             收缩所有的节点 </label>
-        <label class="checkbox-inline">
-            <input type="checkbox" id="with-quotes">
+        <label class="checkbox-inline" @input="handelJson()">
+            <input type="checkbox" id="with-quotes" @click="handelQuotes()">
             为Key添加双引号 </label>
-        <div class="form-group" style="padding: 1em 0;">
-            <el-button id="btn-json-viewer" class="btn btn-info" title="run jsonViewer()" v-on:click="handelJson()" type="primary">格式化Json数据</el-button>
-
-        </div>
         <pre id="json-renderer" class="pre-text">格式化Json数据</pre>
 
         <el-row>
@@ -146,6 +125,7 @@
                 activeNum: 0,
                 currentType: '全部',
                 selectItems: [],
+
                 types: ['全部', '测试活动', '免费活动', '收费活动'],
 
                 Data: [
@@ -199,39 +179,43 @@
 
             }
         },
-        computed: {
-//            filteredTableData: function () {
-//                var type = this.currentType;
-//                return type;
-//                console.log(type);
-//            }
+        computed: {},
+        mounted() {
         },
+
         methods: {
-            handelJson: function () {
-                $('#btn-json-viewer').click(function () {
-                        try {
-                            if($('#json-input').val()!=""){
-                                var input = eval('(' + $('#json-input').val() + ')');
-                            }
-                            else{
-                                var input = '';
-                            }
-                        }
-                        catch (error) {
-                            return alert("Cannot eval JSON: " + error);
-                        }
-                        var options = {
-                            collapsed: $('#collapsed').is(':checked'),
-                            withQuotes: $('#with-quotes').is(':checked')
-                        };
-                        $('#json-renderer').jsonViewer(input, options);
-                });
+            handelJson() {
+                try {
+                    if ($('#json-input').val() != "") {
+                        var input = eval('(' + $('#json-input').val() + ')');
+                    }
+                    else {
+                        var input = '';
+                    }
+                }
+                catch (error) {
+//                    $('.pre-text')[0].children.style.color = 'red';
+                    var input = 'json格式有误';
+                }
+                var options = {
+                    collapsed: $('#collapsed').is(':checked'),
+                    withQuotes: $('#with-quotes').is(':checked')
+                };
+                $('#json-renderer').jsonViewer(input, options);
 
                 // Display JSON sample on load
                 $('#btn-json-viewer').click();
+            },
+            handleCollapsed(){
+                this.handelJson();
+            },
+
+            handelQuotes(){
+                this.handelJson();
             }
         }
     }
+
 </script>
 
 <!--<style src="@/style/json.css"></style>-->
@@ -249,8 +233,8 @@
     }
 
     .group .create-content {
-        background: none!important;
-        border: none!important;
+        background: none !important;
+        border: none !important;
         width: 100%;
         min-height: 50px;
         padding: 0;
@@ -294,11 +278,6 @@
         color: #660;
     }
 
-    /*.group .create-content ol .line {*/
-    /*color: red;*/
-    /*font-size: 15px;*/
-    /*}*/
-
     .group > .head > .el-col > .el-col {
         padding: 20px 0;
         border-right: solid 1px #fff;
@@ -321,7 +300,7 @@
         margin: 0 0 0 1px;
         border-left: 1px dotted #ccc;
         padding-left: 2em;
-        font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
+        font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
         font-size: 13px;
         line-height: 1.42857143;
 
@@ -329,16 +308,10 @@
 
     }
 
-    ul.json-dict li{
+    ul.json-dict li {
         font-weight: bold;
         color: #CC0000;
     }
-
-
-    /*.json-dict li > ul > li{*/
-        /*color: #CC0000;*/
-        /*font-weight: bold;*/
-    /*}*/
 
     .json-string {
         /*color: #007777;*/
@@ -358,10 +331,6 @@
         text-decoration: none;
         color: #CC0000;
         font-weight: bold;
-    }
-
-    a.json-toggle:focus {
-        outline: none;
     }
 
     a.json-toggle:before {
@@ -390,7 +359,7 @@
         text-decoration: underline;
     }
 
-    .pre-text{
+    .pre-text {
         font-family: Lucida Console, Georgia;
         font-size: 13px;
         background-color: #ECECEC;
@@ -424,13 +393,6 @@
         -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
         -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
         transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-    }
-
-    .form-control:focus {
-        border-color: #66afe9;
-        outline: 0;
-        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
-        box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
     }
 
     .form-control::-moz-placeholder {
