@@ -18,7 +18,7 @@
         </el-row>
 
         <div class="create-content">
-             <textarea class="form-control" id="json-input" @input="handelJson()" rows="15" style="resize: vertical;">
+             <textarea class="form-control" id="json-input" @input="handelJson()" rows="15" style="resize: vertical;" placeholder="请输入json数据">
 
              </textarea>
         </div>
@@ -29,7 +29,6 @@
             <input type="checkbox" id="with-quotes" @click="handelQuotes()">
             为Key添加双引号 </label>
         <pre id="json-renderer" class="pre-text">格式化Json数据</pre>
-
         <el-row>
             <el-col :span="24" style="margin:20px 0">
                 <div><strong class="create">参数说明：</strong></div>
