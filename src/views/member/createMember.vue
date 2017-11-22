@@ -18,8 +18,8 @@
         </el-row>
 
         <div class="create-content">
-             <textarea class="form-control" id="json-input" @input="handelJson()" rows="15" style="resize: vertical;" placeholder="请输入json数据">
-
+             <textarea class="form-control" id="json-input" @input="handelJson()" rows="15" style="resize: vertical;"
+                       placeholder="请输入json数据">
              </textarea>
         </div>
         <label class="checkbox-inline">
@@ -106,13 +106,9 @@
                 </li>
             </ol>
         </div>
-
-
     </div>
-
 </template>
 <script>
-
     import $ from 'jquery';
     export default {
         name: 'group',
@@ -193,7 +189,6 @@
                     }
                 }
                 catch (error) {
-//                    $('.pre-text')[0].children.style.color = 'red';
                     var input = 'json格式有误';
                 }
                 var options = {
@@ -216,8 +211,6 @@
     }
 
 </script>
-
-<!--<style src="@/style/json.css"></style>-->
 
 <style>
 
@@ -302,9 +295,7 @@
         font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
         font-size: 13px;
         line-height: 1.42857143;
-
         word-break: break-all;
-
     }
 
     ul.json-dict li {
@@ -449,6 +440,5 @@
     textarea.form-control {
         height: auto;
     }
-
 
 </style>
