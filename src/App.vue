@@ -90,6 +90,11 @@
     import Element from 'element-ui'
     import 'element-ui/lib/theme-chalk/index.css'
     import $ from 'jquery'
+
+
+    import json from '@/utils/service/jquery.json-viewer.js';
+
+
     Vue.use(Element)
     export default {
         name: 'app',

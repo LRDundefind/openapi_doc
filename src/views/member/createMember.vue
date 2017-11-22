@@ -18,84 +18,44 @@
         </el-row>
 
         <div class="create-content">
-            <!--<el-card class="box-card">-->
-            <!--<div v-for="o in 4" :key="o" class="text item">-->
-            <!--{{'列表内容 ' + o }}-->
-            <!--</div>-->
-            <!--</el-card>-->
-            <ol class="line">
-                <li>
-                    <code><span class="pun">{</span></code>
-                </li>
-                <!--<li v-for="data in Data">-->
-                    <!--<code class="code">-->
-                        <!--<span class="pln">&nbsp;</span>-->
-                        <!--<span class="str">{{data.title}}</span>-->
-                        <!--<span class="pun">:</span>-->
-                        <!--<span class="pln"> </span>-->
-                        <!--<span class="str">{{data.type}}</span>-->
-                        <!--<span class="pun">,</span></code>-->
-                <!--</li>-->
-                <li>
-                    <code class="code">
-                        <span class="pln">&nbsp;</span>
-                        <span class="str">"name"</span>
-                        <span class="pun">:</span>
-                        <span class="pln"> </span><span class="str">"张三"</span>
-                        <span class="pun">,</span>
-                    </code>
-                </li>
-                <li>
-                    <code class="code">
-                        <span class="pln">&nbsp;</span>
-                        <span class="str">"userid"</span>
-                        <span class="pun">:</span>
-                        <span class="pln"> </span>
-                        <span class="str">"zhangsan"</span>
-                        <span class="pun">,</span></code>
-                </li>
-                <li>
-                    <code class="code">
-                        <span class="pln">&nbsp;</span>
-                        <span class="str">"english_name"</span>
-                        <span class="pun">:</span>
-                        <span class="pln"> </span>
-                        <span class="str">"jackzhang"</span>
-                        <span class="pun">,</span>
-                    </code>
-                </li>
-                <li><code><span class="pun">}</span></code></li>
-            </ol>
-
+             <textarea class="form-control" id="json-input" rows="15">
+                 {
+                  "id": 1001,
+                  "type": "donut",
+                  "name": "Cake",
+                  "description": "http://www.jq22.com",
+                  "price": 2.55,
+                  "available": {
+                   store: 42,
+                   warehouse: 600
+                   },
+                   "topping": [
+                   { "id": 5001, "type": "None" },
+                   { "id": 5002, "type": "Glazed" },
+                   { "id": 5005, "type": "Sugar" },
+                   { "id": 5003, "type": "Chocolate" },
+                   { "id": 5004, "type": "Maple" }
+                   ]
+                 }
+             </textarea>
+        </div>
+        <label class="checkbox-inline">
+            <input type="checkbox" id="collapsed">
+            收缩所有的节点 </label>
+        <label class="checkbox-inline">
+            <input type="checkbox" id="with-quotes">
+            为Key添加双引号 </label>
+        <div class="form-group" style="padding: 1em 0;">
+            <el-button id="btn-json-viewer" class="btn btn-info" title="run jsonViewer()" v-on:click="handelJson()" type="primary">转换Json数据</el-button>
 
         </div>
+        <pre id="json-renderer" class="pre-text">转换Json数据</pre>
+
         <el-row>
             <el-col :span="24" style="margin:20px 0">
                 <div><strong class="create">参数说明：</strong></div>
             </el-col>
         </el-row>
-
-        <!--<el-table-->
-                <!--:data="tableData3"-->
-                <!--style="width: 100%">-->
-            <!--<el-table-column-->
-                    <!--prop="date"-->
-                    <!--label="参数"-->
-                    <!--width="150">-->
-            <!--</el-table-column>-->
-            <!--<el-table-column-->
-                    <!--prop="name"-->
-                    <!--label="必须"-->
-                    <!--width="120">-->
-            <!--</el-table-column>-->
-
-            <!--<el-table-column-->
-                    <!--prop="province"-->
-                    <!--label="说明"-->
-                    <!--width="600">-->
-            <!--</el-table-column>-->
-
-        <!--</el-table>-->
 
         <el-table
                 :data="tableData3"
@@ -169,10 +129,13 @@
             </ol>
         </div>
 
+
     </div>
 
 </template>
 <script>
+
+    import $ from 'jquery';
     export default {
         name: 'group',
         data: function () {
@@ -244,38 +207,33 @@
 //            }
         },
         methods: {
-//            handleSelect: function (row, column, cell, event) {
-//                if (column.label == '操作') {
-//                    this.$router.push('/activeManage/detail/page1');
-//                } else if(column.type == 'selection'){
-//                    row.$info = !row.$selected;
-//                }else{
-//                    row.$selected = !row.$selected;
-//                    row.$info = row.$selected;
-//                }
-//            },
-//            selectionchange: function (val) {
-//                var arr = [];
-//                val.forEach(function (item) {
-//                    arr.push(item.id);
-//                });
-//                this.selectItems = arr;
-//                this.activeNum = this.selectItems.length;
-//            },
-//            handleRemove:function(){
-//                var tableData = this.tableData;
-//                this.selectItems.forEach(function (id) {
-//                    tableData.forEach(function (data) {
-//                        if(id == data.id){
-//                            tableData.splice(tableData.indexOf(data),1)
-//                        }
-//                    })
-//                });
-//                this.selectItems = [];
-//            },
+            handelJson: function () {
+                $('#btn-json-viewer').click(function () {
+
+
+
+                    try {
+                        var input = eval('(' + $('#json-input').val() + ')');
+                    }
+                    catch (error) {
+                        return alert("Cannot eval JSON: " + error);
+                    }
+                    var options = {
+                        collapsed: $('#collapsed').is(':checked'),
+                        withQuotes: $('#with-quotes').is(':checked')
+                    };
+                    $('#json-renderer').jsonViewer(input, options);
+                });
+
+                // Display JSON sample on load
+                $('#btn-json-viewer').click();
+            }
         }
     }
 </script>
+
+<!--<style src="@/style/json.css"></style>-->
+
 <style>
 
     .group {
@@ -352,4 +310,180 @@
     .allActive .head span {
         font-size: 16px;
     }
+
+    /* Syntax highlighting for JSON objects */
+    ul.json-dict, ol.json-array {
+        list-style-type: none;
+        margin: 0 0 0 1px;
+        border-left: 1px dotted #ccc;
+        padding-left: 2em;
+        font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
+        font-size: 13px;
+        line-height: 1.42857143;
+
+        word-break: break-all;
+
+    }
+
+    ul.json-dict li{
+        font-weight: bold;
+        color: #CC0000;
+    }
+
+
+    /*.json-dict li > ul > li{*/
+        /*color: #CC0000;*/
+        /*font-weight: bold;*/
+    /*}*/
+
+    .json-string {
+        /*color: #007777;*/
+        font-weight: bold;
+        color: #007777;
+    }
+
+    .json-literal {
+        color: #AA00AA;
+        font-weight: bold;
+    }
+
+    /* Toggle button */
+    a.json-toggle {
+        position: relative;
+        /*color: inherit;*/
+        text-decoration: none;
+        color: #CC0000;
+        font-weight: bold;
+    }
+
+    a.json-toggle:focus {
+        outline: none;
+    }
+
+    a.json-toggle:before {
+        color: #aaa;
+        content: "\25BC"; /* down arrow */
+        position: absolute;
+        display: inline-block;
+        width: 1em;
+        left: -1em;
+    }
+
+    a.json-toggle.collapsed:before {
+        transform: rotate(-90deg); /* Use rotated down arrow, prevents right arrow appearing smaller than down arrow in some browsers */
+        -ms-transform: rotate(-90deg);
+        -webkit-transform: rotate(-90deg);
+    }
+
+    /* Collapsable placeholder links */
+    a.json-placeholder {
+        color: #aaa;
+        padding: 0 1em;
+        text-decoration: none;
+    }
+
+    a.json-placeholder:hover {
+        text-decoration: underline;
+    }
+
+    .pre-text{
+        font-family: Lucida Console, Georgia;
+        font-size: 13px;
+        background-color: #ECECEC;
+        color: #000000;
+        border: solid 1px #CECECE;
+        padding: 3%;
+        width: 97%;
+    }
+
+    .container {
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .form-control {
+        display: block;
+        width: 100%;
+        height: 34px;
+        padding: 6px 12px;
+        font-size: 14px;
+        line-height: 1.42857143;
+        color: #555;
+        background-color: #fff;
+        background-image: none;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+        -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+        -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+        transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    }
+
+    .form-control:focus {
+        border-color: #66afe9;
+        outline: 0;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+    }
+
+    .form-control::-moz-placeholder {
+        color: #999;
+        opacity: 1;
+    }
+
+    .form-control:-ms-input-placeholder {
+        color: #999;
+    }
+
+    .form-control::-webkit-input-placeholder {
+        color: #999;
+    }
+
+    .form-control[disabled],
+    .form-control[readonly],
+    fieldset[disabled] .form-control {
+        background-color: #eee;
+        opacity: 1;
+    }
+
+    .form-control[disabled],
+    fieldset[disabled] .form-control {
+        cursor: not-allowed;
+    }
+
+    textarea.form-control {
+        height: auto;
+    }
+
+    .checkbox-inline input[type="checkbox"] {
+        position: absolute;
+        margin-top: 4px \9;
+        margin-left: -20px;
+    }
+
+    .checkbox-inline {
+        position: relative;
+        display: inline-block;
+        padding-left: 20px;
+        margin-bottom: 0;
+        font-weight: normal;
+        vertical-align: middle;
+        cursor: pointer;
+        color: #8a6d3b;
+    }
+
+    .form-inline .form-group {
+        display: inline-block;
+        margin-bottom: 0;
+        vertical-align: middle;
+    }
+
+    textarea.form-control {
+        height: auto;
+    }
+
+
 </style>
