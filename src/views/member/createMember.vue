@@ -18,7 +18,7 @@
         </el-row>
 
         <div class="create-content">
-             <textarea class="form-control" id="json-input" rows="15">
+             <textarea class="form-control" id="json-input" rows="15" style="resize: vertical;">
                  {
                   "id": 1001,
                   "type": "donut",
@@ -46,10 +46,10 @@
             <input type="checkbox" id="with-quotes">
             为Key添加双引号 </label>
         <div class="form-group" style="padding: 1em 0;">
-            <el-button id="btn-json-viewer" class="btn btn-info" title="run jsonViewer()" v-on:click="handelJson()" type="primary">转换Json数据</el-button>
+            <el-button id="btn-json-viewer" class="btn btn-info" title="run jsonViewer()" v-on:click="handelJson()" type="primary">格式化Json数据</el-button>
 
         </div>
-        <pre id="json-renderer" class="pre-text">转换Json数据</pre>
+        <pre id="json-renderer" class="pre-text">格式化Json数据</pre>
 
         <el-row>
             <el-col :span="24" style="margin:20px 0">
@@ -209,20 +209,22 @@
         methods: {
             handelJson: function () {
                 $('#btn-json-viewer').click(function () {
-
-
-
-                    try {
-                        var input = eval('(' + $('#json-input').val() + ')');
-                    }
-                    catch (error) {
-                        return alert("Cannot eval JSON: " + error);
-                    }
-                    var options = {
-                        collapsed: $('#collapsed').is(':checked'),
-                        withQuotes: $('#with-quotes').is(':checked')
-                    };
-                    $('#json-renderer').jsonViewer(input, options);
+                        try {
+                            if($('#json-input').val()!=""){
+                                var input = eval('(' + $('#json-input').val() + ')');
+                            }
+                            else{
+                                var input = '';
+                            }
+                        }
+                        catch (error) {
+                            return alert("Cannot eval JSON: " + error);
+                        }
+                        var options = {
+                            collapsed: $('#collapsed').is(':checked'),
+                            withQuotes: $('#with-quotes').is(':checked')
+                        };
+                        $('#json-renderer').jsonViewer(input, options);
                 });
 
                 // Display JSON sample on load
@@ -247,13 +249,15 @@
     }
 
     .group .create-content {
+        background: none!important;
+        border: none!important;
         width: 100%;
         min-height: 50px;
         padding: 0;
-        border: 1px solid #ddd;
+        /*border: 1px solid #ddd;*/
         white-space: pre-wrap;
         word-wrap: break-word;
-        background-color: rgb(247, 248, 251);
+        /*background-color: rgb(247, 248, 251);*/
     }
 
     .group .create-content li {
@@ -455,7 +459,7 @@
     }
 
     textarea.form-control {
-        height: auto;
+        min-height: 50px;
     }
 
     .checkbox-inline input[type="checkbox"] {
