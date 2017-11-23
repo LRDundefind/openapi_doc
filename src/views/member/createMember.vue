@@ -16,10 +16,23 @@
                 <div><strong class="create">请求包体：</strong></div>
             </el-col>
         </el-row>
+
         <!-- 转换json格式组件 -->
         <json-viewer ref="jsonViewer1" :data="tableData3"></json-viewer>
         <!-- <json-viewer ref="jsonViewer2" :data="Data" :idName="jsonId.jsonViewer2"></json-viewer> -->
 
+        <div class="create-content">
+             <textarea class="form-control" id="json-input" @input="handelJson()" rows="15" style="resize: vertical;"
+                       placeholder="请输入json数据">
+             </textarea>
+        </div>
+        <label class="checkbox-inline">
+            <input type="checkbox" id="collapsed" @click="handleCollapsed()">
+            收缩所有的节点 </label>
+        <label class="checkbox-inline" @input="handelJson()">
+            <input type="checkbox" id="with-quotes" @click="handelQuotes()">
+            为Key添加双引号 </label>
+        <pre id="json-renderer" class="pre-text">格式化Json数据</pre>
         <el-row>
             <el-col :span="24" style="margin:20px 0">
                 <div><strong class="create">参数说明：</strong></div>
@@ -97,13 +110,11 @@
                 </li>
             </ol>
         </div>
-
-
     </div>
-
 </template>
 <script>
 import jsonViewer from '@/components/jsonViewer/jsonViewer';
+
     export default {
         name: 'group',
         data: function () {
@@ -177,13 +188,31 @@ import jsonViewer from '@/components/jsonViewer/jsonViewer';
         },
 
         methods: {
+            handelJson() {
+                try {
+                    if ($('#json-input').val() != "") {
+                        var input = eval('(' + $('#json-input').val() + ')');
+                    }
+                    else {
+                        var input = '';
+                    }
+                }
+                catch (error) {
+                    var input = 'json格式有误';
+                }
+                var options = {
+                    collapsed: $('#collapsed').is(':checked'),
+                    withQuotes: $('#with-quotes').is(':checked')
+                };
+                $('#json-renderer').jsonViewer(input, options);
 
+                // Display JSON sample on load
+                $('#btn-json-viewer').click();
+            },
         }
     }
 
 </script>
-
-<!--<style src="@/style/json.css"></style>-->
 
 <style>
 
@@ -268,9 +297,7 @@ import jsonViewer from '@/components/jsonViewer/jsonViewer';
         font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
         font-size: 13px;
         line-height: 1.42857143;
-
         word-break: break-all;
-
     }
 
     ul.json-dict li {
@@ -340,7 +367,6 @@ import jsonViewer from '@/components/jsonViewer/jsonViewer';
         margin-right: auto;
         margin-left: auto;
     }
-
 
 
 </style>
