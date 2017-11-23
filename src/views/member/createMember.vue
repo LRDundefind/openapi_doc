@@ -16,26 +16,16 @@
                 <div><strong class="create">请求包体：</strong></div>
             </el-col>
         </el-row>
-
-        <div class="create-content">
-             <textarea class="form-control" id="json-input" @input="handelJson()" rows="15" style="resize: vertical;">
-
-             </textarea>
-        </div>
-        <label class="checkbox-inline">
-            <input type="checkbox" id="collapsed" @click="handleCollapsed()">
-            收缩所有的节点 </label>
-        <label class="checkbox-inline" @input="handelJson()">
-            <input type="checkbox" id="with-quotes" @click="handelQuotes()">
-            为Key添加双引号 </label>
-        <pre id="json-renderer" class="pre-text">格式化Json数据</pre>
+        <!-- 转换json格式组件 -->
+        <json-viewer ref="jsonViewer1" :data="tableData3"></json-viewer>
+        <!-- <json-viewer ref="jsonViewer2" :data="Data" :idName="jsonId.jsonViewer2"></json-viewer> -->
 
         <el-row>
             <el-col :span="24" style="margin:20px 0">
                 <div><strong class="create">参数说明：</strong></div>
             </el-col>
         </el-row>
-
+       
         <el-table
                 :data="tableData3"
                 style="width: 100%">
@@ -113,8 +103,7 @@
 
 </template>
 <script>
-
-    import $ from 'jquery';
+import jsonViewer from '@/components/jsonViewer/jsonViewer';
     export default {
         name: 'group',
         data: function () {
@@ -125,7 +114,11 @@
                 activeNum: 0,
                 currentType: '全部',
                 selectItems: [],
-
+                jsonId: {
+                    jsonViewer1: "Data",
+                    jsonViewer2: "tableData3"
+                },
+                
                 types: ['全部', '测试活动', '免费活动', '收费活动'],
 
                 Data: [
@@ -176,43 +169,15 @@
                     name: '否',
                     province: '部门内的排序值，默认为0。数量必须和department一致，数值越大排序越前面。有效的值范围是[0, 2^32)',
                 }]
-
             }
         },
-        computed: {},
+        components: { jsonViewer },
         mounted() {
+
         },
 
         methods: {
-            handelJson() {
-                try {
-                    if ($('#json-input').val() != "") {
-                        var input = eval('(' + $('#json-input').val() + ')');
-                    }
-                    else {
-                        var input = '';
-                    }
-                }
-                catch (error) {
-//                    $('.pre-text')[0].children.style.color = 'red';
-                    var input = 'json格式有误';
-                }
-                var options = {
-                    collapsed: $('#collapsed').is(':checked'),
-                    withQuotes: $('#with-quotes').is(':checked')
-                };
-                $('#json-renderer').jsonViewer(input, options);
 
-                // Display JSON sample on load
-                $('#btn-json-viewer').click();
-            },
-            handleCollapsed(){
-                this.handelJson();
-            },
-
-            handelQuotes(){
-                this.handelJson();
-            }
         }
     }
 
@@ -376,80 +341,6 @@
         margin-left: auto;
     }
 
-    .form-control {
-        display: block;
-        width: 100%;
-        height: 34px;
-        padding: 6px 12px;
-        font-size: 14px;
-        line-height: 1.42857143;
-        color: #555;
-        background-color: #fff;
-        background-image: none;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
-        box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
-        -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
-        -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-        transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-    }
-
-    .form-control::-moz-placeholder {
-        color: #999;
-        opacity: 1;
-    }
-
-    .form-control:-ms-input-placeholder {
-        color: #999;
-    }
-
-    .form-control::-webkit-input-placeholder {
-        color: #999;
-    }
-
-    .form-control[disabled],
-    .form-control[readonly],
-    fieldset[disabled] .form-control {
-        background-color: #eee;
-        opacity: 1;
-    }
-
-    .form-control[disabled],
-    fieldset[disabled] .form-control {
-        cursor: not-allowed;
-    }
-
-    textarea.form-control {
-        min-height: 50px;
-    }
-
-    .checkbox-inline input[type="checkbox"] {
-        position: absolute;
-        margin-top: 4px \9;
-        margin-left: -20px;
-    }
-
-    .checkbox-inline {
-        position: relative;
-        display: inline-block;
-        padding-left: 20px;
-        margin-bottom: 0;
-        font-weight: normal;
-        vertical-align: middle;
-        cursor: pointer;
-        color: #8a6d3b;
-    }
-
-    .form-inline .form-group {
-        display: inline-block;
-        margin-bottom: 0;
-        vertical-align: middle;
-    }
-
-    textarea.form-control {
-        height: auto;
-    }
 
 
 </style>
