@@ -4,18 +4,18 @@
         <el-header id="header">
             <el-row>
                 <el-col :span="17">
-                    <img class="f-r" src="../static/logo.png" height="50" width="100"/>
-                </el-col>
-                <el-col :span="1">
-                    <i class="el-icon-search header-icon"></i>
-                </el-col>
-                <el-col :span="3">
-                    <el-input class="el-input  f-l" placeholder="搜索"></el-input>
-                </el-col>
-                <el-col :span="3">
-                    <h4 class="header-text">联系我们</h4>
-                    <!--<router-link to="/address">联系我们</router-link>-->
-                </el-col>
+                    <!--<img class="f-r" src="../static/logo.png" height="50" width="100"/>-->
+                    <img src="../static/openApi_logo.png" height="32" width="261"/></el-col>
+                <!--<el-col :span="1">-->
+                    <!--<i class="el-icon-search header-icon"></i>-->
+                <!--</el-col>-->
+                <!--<el-col :span="3">-->
+                    <!--<el-input class="el-input  f-l" placeholder="搜索"></el-input>-->
+                <!--</el-col>-->
+                <!--<el-col :span="3">-->
+                    <!--<h4 class="header-text">联系我们</h4>-->
+                    <!--&lt;!&ndash;<router-link to="/address">联系我们</router-link>&ndash;&gt;-->
+                <!--</el-col>-->
             </el-row>
         </el-header>
         <el-main>
@@ -276,7 +276,7 @@
     }
 
     img {
-        margin-left: 1%;
+        margin-top: 0.8%;
     }
 
     .el-input {
