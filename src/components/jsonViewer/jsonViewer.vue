@@ -82,7 +82,7 @@
         color: #000000;
         border: solid 1px #CECECE;
         padding: 3%;
-        width: 97%;
+        width: 88%;
     }
 </style>
 

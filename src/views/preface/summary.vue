@@ -1,185 +1,86 @@
 <template>
-  <div class="group">
-    <h2>概述</h2>
-    <el-row>
-      <el-col :span="24">
-        <div class=" "><strong class="create">请求方式：</strong> POST（HTTPS） </div>
-      </el-col>
-      <el-col :span="24">
-        <div class=" "><strong class="create">请求地址：</strong>
-          https://qyapi.weixin.qq.com/cgi-bin/user/create?access_token=ACCESS_TOKEN）
-        </div>
-      </el-col>
-    </el-row>
-    <el-row>
-      <el-col :span="24" style="margin:20px 0">
-        <div><strong class="create">请求包体：</strong></div>
-      </el-col>
-    </el-row>
+    <div class="group">
+        <h2>概述</h2>
+        <el-row>
+            <el-col :span="24">
+                <div class=" "><strong class="create">请求方式：</strong> POST（HTTPS） </div>
+            </el-col>
+            <el-col :span="24">
+                <div class=" "><strong class="create">请求地址：</strong>
+                    https://qyapi.weixin.qq.com/cgi-bin/user/create?access_token=ACCESS_TOKEN）
+                </div>
+            </el-col>
+        </el-row>
+        <el-row>
+            <el-col :span="24" style="margin:20px 0">
+                <div><strong class="create">请求包体：</strong></div>
+            </el-col>
+        </el-row>
 
-    <div class="create-content">
-      <!--<el-card class="box-card">-->
-      <!--<div v-for="o in 4" :key="o" class="text item">-->
-      <!--{{'列表内容 ' + o }}-->
-      <!--</div>-->
-      <!--</el-card>-->
-      <ol class="line">
-        <li>
-          <code><span class="pun">{</span></code>
-        </li>
-        <!--<li v-for="data in Data">-->
-        <!--<code class="code">-->
-        <!--<span class="pln">&nbsp;</span>-->
-        <!--<span class="str">{{data.title}}</span>-->
-        <!--<span class="pun">:</span>-->
-        <!--<span class="pln"> </span>-->
-        <!--<span class="str">{{data.type}}</span>-->
-        <!--<span class="pun">,</span></code>-->
-        <!--</li>-->
-        <li>
-          <code class="code">
-            <span class="pln">&nbsp;</span>
-            <span class="str">"name"</span>
-            <span class="pun">:</span>
-            <span class="pln"> </span><span class="str">"张三"</span>
-            <span class="pun">,</span>
-          </code>
-        </li>
-        <li>
-          <code class="code">
-            <span class="pln">&nbsp;</span>
-            <span class="str">"userid"</span>
-            <span class="pun">:</span>
-            <span class="pln"> </span>
-            <span class="str">"zhangsan"</span>
-            <span class="pun">,</span></code>
-        </li>
-        <li>
-          <code class="code">
-            <span class="pln">&nbsp;</span>
-            <span class="str">"english_name"</span>
-            <span class="pun">:</span>
-            <span class="pln"> </span>
-            <span class="str">"jackzhang"</span>
-            <span class="pun">,</span>
-          </code>
-        </li>
-        <li><code><span class="pun">}</span></code></li>
-      </ol>
+        <!-- 转换json格式组件 -->
+        <json-viewer :data="summaryData" :id-name="jsonId.jsonViewer1"></json-viewer>
+        <!--<json-viewer :data="Data1" :id-name="jsonId.jsonViewer2"></json-viewer>-->
+        <el-row>
+            <el-col :span="24" style="margin:20px 0">
+                <div><strong class="create">参数说明：</strong></div>
+            </el-col>
+        </el-row>
 
+        <el-table
+                :data="tableData3">
+            <el-table-column
+                    prop="date"
+                    label="参数"
+                    width="150">
+            </el-table-column>
+            <el-table-column
+                    prop="name"
+                    label="必须"
+                    width="120">
+            </el-table-column>
+
+            <el-table-column
+                    prop="province"
+                    label="说明"
+                    width="600">
+            </el-table-column>
+
+        </el-table>
+
+        <el-row>
+            <el-col :span="24" style="margin-top: 20px">
+                <div><strong class="create">权限说明：</strong></div>
+            </el-col>
+        </el-row>
+
+        <el-row>
+            <el-col :span="24" style="margin-top: 20px">
+                <div>系统应用须拥有指定部门的管理权限。</div>
+            </el-col>
+        </el-row>
+
+        <el-row>
+            <el-col :span="24" style="margin:20px 0">
+                <div><strong class="create">返回结果：</strong></div>
+            </el-col>
+        </el-row>
+        <json-viewer :data="summaryData1" :id-name="jsonId.jsonViewer2"></json-viewer>
 
     </div>
-    <el-row>
-      <el-col :span="24" style="margin:20px 0">
-        <div><strong class="create">参数说明：</strong></div>
-      </el-col>
-    </el-row>
-
-    <el-table
-            :data="tableData3"
-            style="width: 100%">
-      <el-table-column
-              prop="date"
-              label="参数"
-              width="150">
-      </el-table-column>
-      <el-table-column
-              prop="name"
-              label="必须"
-              width="120">
-      </el-table-column>
-
-      <el-table-column
-              prop="province"
-              label="说明"
-              width="600">
-      </el-table-column>
-    </el-table>
-
-    <el-row>
-      <el-col :span="24" style="margin-top: 20px">
-        <div><strong class="create">权限说明：</strong></div>
-      </el-col>
-    </el-row>
-
-    <el-row>
-      <el-col :span="24" style="margin-top: 20px">
-        <div>系统应用须拥有指定部门的管理权限。</div>
-      </el-col>
-    </el-row>
-
-    <el-row>
-      <el-col :span="24" style="margin:20px 0">
-        <div><strong class="create">返回结果：</strong></div>
-      </el-col>
-    </el-row>
-
-    <div class="create-content" style="margin-bottom: 50px">
-      <ol>
-        <li>
-          <code class="code"><span class="pun">{</span></code>
-        </li>
-        <li>
-          <code class="code">
-            <span class="pln">   </span>
-            <span class="str">"errcode"</span>
-            <span class="pun">:</span>
-            <span class="pln"> </span>
-            <span class="lit">0</span>
-            <span class="pun">,</span>
-          </code>
-        </li>
-        <li>
-          <code class="code">
-            <span class="pln">   </span>
-            <span class="str">"errmsg"</span>
-            <span class="pun">:</span>
-            <span class="pln"> </span>
-            <span class="str">"created"</span>
-          </code>
-        </li>
-        <li>
-          <code class="code">
-            <span class="pun">}</span>
-          </code>
-        </li>
-      </ol>
-    </div>
-
-  </div>
-
 </template>
 <script>
+    import jsonViewer from '@/components/jsonViewer/jsonViewer';
+
     export default {
         name: 'group',
         data: function () {
             return {
-                totalActiveNum: 3,
-                totalSignUp: 204,
-                auditNum: 15,
-                activeNum: 0,
-                currentType: '全部',
-                selectItems: [],
-                types: ['全部', '测试活动', '免费活动', '收费活动'],
-                tableData1: [{
-                    date: '2016-05-02',
-                    name: '王小虎',
-                    address: '上海市普陀区金沙江路 1518 弄'
-                }, {
-                    date: '2016-05-04',
-                    name: '王小虎',
-                    address: '上海市普陀区金沙江路 1517 弄'
-                }, {
-                    date: '2016-05-01',
-                    name: '王小虎',
-                    address: '上海市普陀区金沙江路 1519 弄'
-                }, {
-                    date: '2016-05-03',
-                    name: '王小虎',
-                    address: '上海市普陀区金沙江路 1516 弄'
-                }],
+                jsonId: {
+                    jsonViewer1: "summaryData",
+                    jsonViewer2: "summaryData1"
+                },
 
-                Data: [
+                summaryData: [
                     {
                         id: '001',
                         title: '"userid"',
@@ -188,6 +89,24 @@
                         id: '002',
                         title: '"userid"',
                         type: '"张三" ',
+                    }, {
+                        id: '003',
+                        title: '"userid"',
+                        type: '"zhangsan"',
+                    }, {
+                        id: '004',
+                        title: '"english_name"',
+                        type: '"jackzhang"',
+                    }],
+                summaryData1: [
+                    {
+                        id: '001',
+                        title: '"userid"',
+                        type: '"zhangsan"',
+                    }, {
+                        id: '002',
+                        title: '"userid"',
+                        type: '"李四" ',
                     }, {
                         id: '003',
                         title: '"userid"',
@@ -227,129 +146,37 @@
                     name: '否',
                     province: '部门内的排序值，默认为0。数量必须和department一致，数值越大排序越前面。有效的值范围是[0, 2^32)',
                 }]
-
             }
         },
-//        computed: {
-//            filteredTableData: function () {
-//                var type = this.currentType;
-//                return this.tableData.filter(function (data) {
-//                    if (type == '全部' || type == '') {
-//                        return true
-//                    } else {
-//                        return data.type == type
-//                    }
-//                })
-//            }
-//        },
+        components: {jsonViewer},
+        mounted() {
+            this.handelJson();
+        },
+
         methods: {
-//            handleSelect: function (row, column, cell, event) {
-//                if (column.label == '操作') {
-//                    this.$router.push('/activeManage/detail/page1');
-//                } else if(column.type == 'selection'){
-//                    row.$info = !row.$selected;
-//                }else{
-//                    row.$selected = !row.$selected;
-//                    row.$info = row.$selected;
-//                }
-//            },
-//            selectionchange: function (val) {
-//                var arr = [];
-//                val.forEach(function (item) {
-//                    arr.push(item.id);
-//                });
-//                this.selectItems = arr;
-//                this.activeNum = this.selectItems.length;
-//            },
-//            handleRemove:function(){
-//                var tableData = this.tableData;
-//                this.selectItems.forEach(function (id) {
-//                    tableData.forEach(function (data) {
-//                        if(id == data.id){
-//                            tableData.splice(tableData.indexOf(data),1)
-//                        }
-//                    })
-//                });
-//                this.selectItems = [];
-//            },
+            handelJson() {
+                try {
+                    if ($('#json-input').val() != "") {
+                        var input = eval('(' + $('#json-input').val() + ')');
+                    }
+                    else {
+                        var input = '';
+                    }
+                }
+                catch (error) {
+                    var input = 'json格式有误';
+                }
+                var options = {
+                    collapsed: $('#collapsed').is(':checked'),
+                    withQuotes: $('#with-quotes').is(':checked')
+                };
+                $('#json-renderer').jsonViewer(input, options);
+
+                // Display JSON sample on load
+                $('#btn-json-viewer').click();
+            },
         }
     }
+
 </script>
-<style>
 
-  .group {
-    width: 57%;
-    margin-left: 15%;
-  }
-
-  .group .create {
-    font-weight: 700;
-    line-height: 26px;
-  }
-
-  .group .create-content {
-    width: 100%;
-    min-height: 50px;
-    padding: 0;
-    border: 1px solid #ddd;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-    background-color: rgb(247, 248, 251);
-  }
-
-  .group .create-content li {
-    list-style-type: decimal;
-    padding-left: 10px;
-    padding-top: 2px;
-    padding-bottom: 2px;
-    color: #333;
-    font-size: 15px;
-  }
-
-  .group .create-content li code {
-    display: inline;
-    max-width: initial;
-    padding: 0;
-    margin: 0;
-    overflow: initial;
-    line-height: inherit;
-    word-wrap: normal;
-    background-color: transparent;
-    border: 0;
-    font-size: 15px;
-  }
-
-  .pln {
-    color: #000;
-  }
-
-  .str {
-    color: #080;
-  }
-
-  .clo, .opn, .pun {
-    color: #660;
-  }
-
-  /*.group .create-content ol .line {*/
-  /*color: red;*/
-  /*font-size: 15px;*/
-  /*}*/
-
-  .group > .head > .el-col > .el-col {
-    padding: 20px 0;
-    border-right: solid 1px #fff;
-  }
-
-  .group .head {
-    text-align: center;
-    color: #fff;
-    font-size: 30px;
-    margin-bottom: 50px;
-  }
-
-  .allActive .head span {
-    font-size: 16px;
-  }
-
-</style>

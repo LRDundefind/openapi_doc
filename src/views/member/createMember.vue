@@ -18,17 +18,16 @@
         </el-row>
 
         <!-- 转换json格式组件 -->
-        <json-viewer :data="Data" :id-name="jsonId.jsonViewer1"></json-viewer>
-        <json-viewer :data="Data1" :id-name="jsonId.jsonViewer2"></json-viewer>
+        <json-viewer :data="memberData" :id-name="jsonId.jsonViewer1"></json-viewer>
+        <!--<json-viewer :data="Data1" :id-name="jsonId.jsonViewer2"></json-viewer>-->
         <el-row>
             <el-col :span="24" style="margin:20px 0">
                 <div><strong class="create">参数说明：</strong></div>
             </el-col>
         </el-row>
-       
+
         <el-table
-                :data="tableData3"
-                style="width: 100%">
+                :data="tableData3">
             <el-table-column
                     prop="date"
                     label="参数"
@@ -65,61 +64,23 @@
                 <div><strong class="create">返回结果：</strong></div>
             </el-col>
         </el-row>
+        <json-viewer :data="memberData1" :id-name="jsonId.jsonViewer2"></json-viewer>
 
-        <div class="create-content" style="margin-bottom: 50px">
-            <ol>
-                <li>
-                    <code class="code"><span class="pun">{</span></code>
-                </li>
-                <li>
-                    <code class="code">
-                        <span class="pln">   </span>
-                        <span class="str">"errcode"</span>
-                        <span class="pun">:</span>
-                        <span class="pln"> </span>
-                        <span class="lit">0</span>
-                        <span class="pun">,</span>
-                    </code>
-                </li>
-                <li>
-                    <code class="code">
-                        <span class="pln">   </span>
-                        <span class="str">"errmsg"</span>
-                        <span class="pun">:</span>
-                        <span class="pln"> </span>
-                        <span class="str">"created"</span>
-                    </code>
-                </li>
-                <li>
-                    <code class="code">
-                        <span class="pun">}</span>
-                    </code>
-                </li>
-            </ol>
-        </div>
     </div>
 </template>
 <script>
-import jsonViewer from '@/components/jsonViewer/jsonViewer';
+    import jsonViewer from '@/components/jsonViewer/jsonViewer';
 
     export default {
         name: 'group',
         data: function () {
             return {
-                totalActiveNum: 3,
-                totalSignUp: 204,
-                auditNum: 15,
-                activeNum: 0,
-                currentType: '全部',
-                selectItems: [],
                 jsonId: {
-                    jsonViewer1: "Data",
-                    jsonViewer2: "Data1"
+                    jsonViewer1: "memberData",
+                    jsonViewer2: "memberData1"
                 },
-                
-                types: ['全部', '测试活动', '免费活动', '收费活动'],
 
-                Data: [
+                memberData: [
                     {
                         id: '001',
                         title: '"userid"',
@@ -137,7 +98,7 @@ import jsonViewer from '@/components/jsonViewer/jsonViewer';
                         title: '"english_name"',
                         type: '"jackzhang"',
                     }],
-                Data1: [
+                memberData1: [
                     {
                         id: '001',
                         title: '"userid"',
@@ -187,9 +148,9 @@ import jsonViewer from '@/components/jsonViewer/jsonViewer';
                 }]
             }
         },
-        components: { jsonViewer },
+        components: {jsonViewer},
         mounted() {
-
+            this.handelJson();
         },
 
         methods: {
@@ -219,6 +180,3 @@ import jsonViewer from '@/components/jsonViewer/jsonViewer';
 
 </script>
 
-<style>
-
-</style>

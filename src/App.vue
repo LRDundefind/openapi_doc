@@ -4,18 +4,18 @@
         <el-header id="header">
             <el-row>
                 <el-col :span="17">
-                    <img class="f-r" src="../static/logo.png" height="50" width="100"/>
+                    <img class="f-r" src="../static/openApi_logo.png" height="32" width="261"/>
                 </el-col>
-                <el-col :span="1">
-                    <i class="el-icon-search header-icon"></i>
-                </el-col>
-                <el-col :span="3">
-                    <el-input class="el-input  f-l" placeholder="搜索"></el-input>
-                </el-col>
-                <el-col :span="3">
-                    <h4 class="header-text">联系我们</h4>
-                    <!--<router-link to="/address">联系我们</router-link>-->
-                </el-col>
+                <!--<el-col :span="1">-->
+                    <!--<i class="el-icon-search header-icon"></i>-->
+                <!--</el-col>-->
+                <!--<el-col :span="3">-->
+                    <!--<el-input class="el-input  f-l" placeholder="搜索"></el-input>-->
+                <!--</el-col>-->
+                <!--<el-col :span="3">-->
+                    <!--<h4 class="header-text">联系我们</h4>-->
+                    <!--&lt;!&ndash;<router-link to="/address">联系我们</router-link>&ndash;&gt;-->
+                <!--</el-col>-->
             </el-row>
         </el-header>
         <el-main>
@@ -151,6 +151,7 @@
 
     #main-right {
         background-color: #ffffff;
+        /*margin-bottom: 2%;*/
     }
 
     .el-submenu.is-active .el-submenu__title {
@@ -191,39 +192,6 @@
     header .el-menu-demo {
         padding-left: 300px !important;
     }
-
-    /* 主内容区 */
-    /*main {*/
-    /*display: -webkit-box;*/
-    /*display: -ms-flexbox;*/
-    /*display: flex;*/
-    /*!*min-height: 800px;*!*/
-    /*border: solid 40px #E9ECF1;*/
-    /*background-color: #FCFCFC;*/
-    /*}*/
-
-    /*main .main-left {*/
-    /*width: 15%;*/
-    /*padding-top: 50px;*/
-    /*position: fixed;*/
-    /*overflow-y: scroll;*/
-    /*!*overflow-x: hidden;*!*/
-    /*text-align: center;*/
-    /*height: -moz-calc(900px - 150px);*/
-    /*height: -webkit-calc(900px - 150px);*/
-    /*height: calc(900px - 1px);*/
-    /*background-color: rgb(237, 239, 242);*/
-    /*max-height: 900px;*/
-    /*}*/
-
-    /*main .main-right {*/
-    /*-webkit-box-flex: 1;*/
-    /*-ms-flex: 1;*/
-    /*flex: 1;*/
-    /*background-color: #fff;*/
-    /*padding: 50px 70px;*/
-    /*padding-left: 20.8%;*/
-    /*}*/
 
     main .el-menu {
         background-color: transparent !important;
@@ -276,7 +244,7 @@
     }
 
     img {
-        margin-left: 1%;
+        margin-top: 0.8%;
     }
 
     .el-input {
@@ -344,10 +312,18 @@
     }
 
     .group {
-        width: 70%;
-        margin: 0 !important;
+        width: 57%;
+        margin-bottom: 7%;
         padding-left: 25% !important;
-        /*margin-left: 15%;*/
+    }
+
+    .group .create {
+        font-weight: 700;
+        line-height: 1.5;
+    }
+
+    .el-table--fit{
+        width: 95%!important;
     }
 
 </style>
