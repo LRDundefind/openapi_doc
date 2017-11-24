@@ -150,31 +150,11 @@
         },
         components: {jsonViewer},
         mounted() {
-            this.handelJson();
+
         },
 
         methods: {
-            handelJson() {
-                try {
-                    if ($('#json-input').val() != "") {
-                        var input = eval('(' + $('#json-input').val() + ')');
-                    }
-                    else {
-                        var input = '';
-                    }
-                }
-                catch (error) {
-                    var input = 'json格式有误';
-                }
-                var options = {
-                    collapsed: $('#collapsed').is(':checked'),
-                    withQuotes: $('#with-quotes').is(':checked')
-                };
-                $('#json-renderer').jsonViewer(input, options);
 
-                // Display JSON sample on load
-                $('#btn-json-viewer').click();
-            },
         }
     }
 
