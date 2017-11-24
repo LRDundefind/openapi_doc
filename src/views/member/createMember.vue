@@ -150,33 +150,18 @@
         },
         components: {jsonViewer},
         mounted() {
+<<<<<<< HEAD
             this.handelJson();
+=======
+>>>>>>> d83a8eb6a0d0a916f17ae54ccfb3bac4751a01b0
         },
 
         methods: {
-            handelJson() {
-                try {
-                    if ($('#json-input').val() != "") {
-                        var input = eval('(' + $('#json-input').val() + ')');
-                    }
-                    else {
-                        var input = '';
-                    }
-                }
-                catch (error) {
-                    var input = 'json格式有误';
-                }
-                var options = {
-                    collapsed: $('#collapsed').is(':checked'),
-                    withQuotes: $('#with-quotes').is(':checked')
-                };
-                $('#json-renderer').jsonViewer(input, options);
-
-                // Display JSON sample on load
-                $('#btn-json-viewer').click();
-            },
         }
     }
-
 </script>
+<<<<<<< HEAD
 
+=======
+<style></style>
+>>>>>>> d83a8eb6a0d0a916f17ae54ccfb3bac4751a01b0
