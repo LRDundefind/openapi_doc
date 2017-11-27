@@ -42,19 +42,21 @@
                         通讯录管理
                     </div>
                     <el-submenu index="1">
-                        <template slot="title" class="is-active">成员管理</template>
-                        <el-menu-item index="/createMember">创建成员</el-menu-item>
-                        <el-menu-item index="/readMember">读取成员</el-menu-item>
-                        <!--<el-menu-item index="/activePublic">读取成员</el-menu-item>-->
-                        <!--<el-menu-item index="/activePublic">读取成员</el-menu-item>-->
+                        <template slot="title" class="is-active">用户管理</template>
+                        <el-menu-item index="/user/create">创建用户</el-menu-item>
+                        <el-menu-item index="/user/get">读取用户</el-menu-item>
+                        <el-menu-item index="/user/update">更新用户</el-menu-item>
+                        <el-menu-item index="/user/delete">删除用户</el-menu-item>
                     </el-submenu>
 
                     <el-submenu index="2">
                         <template slot="title">部门管理</template>
                         <!--<el-menu-item-group>-->
                         <!--<template slot="title">分组一</template>-->
-                        <el-menu-item index="/establishDepartment">创建部门</el-menu-item>
+                        <el-menu-item index="/createDepartment">创建部门</el-menu-item>
                         <el-menu-item index="/updateDepartment">更新部门</el-menu-item>
+                        <el-menu-item index="/updateDepartment">删除部门</el-menu-item>
+                        <el-menu-item index="/getDepartment">获取部门列表</el-menu-item>
                         <!--</el-menu-item-group>-->
                     </el-submenu>
                     <el-submenu index="3">
@@ -64,7 +66,7 @@
                         <el-menu-item index="/createLabel">创建标签</el-menu-item>
                         <el-menu-item index="/UpdateName">更新标签名字</el-menu-item>
                         <el-menu-item index="/deleteLabel">删除标签</el-menu-item>
-                        <el-menu-item index="/getMembers">获取标签成员</el-menu-item>
+                        <el-menu-item index="/getLabel">获取标签列表</el-menu-item>
                     </el-submenu>
                     <li style="min-height: 500px">
                     </li>
@@ -91,9 +93,8 @@
     import 'element-ui/lib/theme-chalk/index.css'
     import $ from 'jquery'
 
-    import './style/index.css'
+    import './style/index.scss'
 
-    import json from '@/utils/service/jquery.json-viewer.js';
 
 
     Vue.use(Element)
@@ -108,7 +109,7 @@
         },
 
         created: function () {
-            this.$router.push('/createMember');
+
         },
         methods: {
             handleOpen(key, keyPath) {

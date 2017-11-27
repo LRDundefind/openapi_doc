@@ -8,6 +8,14 @@
                 :request-table-data="requestTableData"
                 :response-table-data="responseTableData"
         ></api-doc>
+        <el-row>
+            <el-col :span="24" style="margin-top: 20px">
+                <div><strong class="create">注意事项：</strong></div>
+            </el-col>
+            <el-col :span="24" style="margin-top: 20px">
+                部门下有子部门时，需先删除子部门。
+            </el-col>
+        </el-row>
     </div>
 </template>
 <script>
@@ -18,11 +26,11 @@
         components: {apiDoc},
         data: function () {
             return {
-                apiName: '更新标签名字',
-                apiUrl: this.apiUrl('v1/contacts/label/update?access_token=ACCESS_TOKEN'),
+                apiName: '删除标签',
+                apiUrl: this.apiUrl('v1/contacts/department/delete?access_token=ACCESS_TOKEN'),
                 requestData: {
-                    "tagid": "1",
-                    "tagname": "JAVA",
+                    "id": "1",
+
                 },
                 responseData: {
                     "status": "Y",
@@ -34,23 +42,22 @@
                 },
 
                 requestTableData: [{
-                    date: 'tagid',
+                    date: 'id',
                     name: '是',
-                    province: '标签id，非负整型',
-                }, {
-                    date: 'tagname',
-                    name: '是',
-                    province: '标签名称，长度限制为32个字（汉字或英文字母）',
+                    province: '部门id。（注：不能删除根部门；不能删除含有子部门、用户的部门）',
                 }],
                 responseTableData: [{
                     date: 'id',
-                    province: '标签自增ID',
+                    province: '部门自增ID',
                 }]
             }
         },
         created() {
 
-        }
+        },
+
+        methods: {}
     }
+
 </script>
 
