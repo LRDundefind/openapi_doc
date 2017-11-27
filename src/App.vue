@@ -68,7 +68,7 @@
                         <el-menu-item index="/deleteLabel">删除标签</el-menu-item>
                         <el-menu-item index="/getLabel">获取标签列表</el-menu-item>
                     </el-submenu>
-                    <li style="min-height: 800px">
+                    <li style="min-height: 500px">
                     </li>
                 </el-menu>
             </el-aside>
