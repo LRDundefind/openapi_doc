@@ -20,10 +20,14 @@ body{
 
 .el-submenu.is-active .el-submenu__title {
   padding-left: 15% !important;
+  line-height: 45px !important;
+  height: 45px !important;
 }
 
 .el-submenu__title {
   padding-left: 15% !important;
+  line-height: 45px !important;
+  height:45px !important;
 }
 
 body {
@@ -152,6 +156,13 @@ img {
 
 .el-submenu .el-menu-item {
   margin-left: 20px !important;
+  line-height: 45px !important;
+  height: 45px !important;
+}
+
+.el-menu-item{
+  line-height: 45px !important;
+  height: 45px !important;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -180,13 +191,15 @@ img {
   padding-left: 25% !important;
 }
 
-.group .create {
+.create {
   font-weight: 700;
-  line-height: 1.5;
+  line-height: 26px;
+  color: #333;
+  font-size: 15px;
 }
 
 .el-table--fit{
-  width: 95%!important;
+  width: 100%!important;
 }
 
 .json-viewer{
@@ -273,6 +286,12 @@ img {
     word-wrap: break-word;
   }
 
+  .markdown-body p {
+    line-height: 26px;
+  }
 
+  .markdown-body strong {
+    font-weight: 700;
+  }
 
 }

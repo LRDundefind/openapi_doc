@@ -1,17 +1,15 @@
 <template>
     <div class="api-doc">
-        <h2 v-text="apiName"></h2>
-
+        <el-row>
+        <h2 v-text="apiName" class="name-text"></h2>
         </el-row>
         <el-row>
-            <el-col :span="24" style="margin:20px 0">
-                <div class=" "><strong class="create">请求方式：</strong> {{methodType}}（HTTPS）Content-Type: application/json
-                </div>
-            </el-col>
-            <el-col :span="24">
-                <div class=" "><strong class="create">请求地址：</strong>
+            <el-col :span="24" class="markdown-body">
+                <p class="create"><strong>请求方式：</strong> {{methodType}}（HTTPS）Content-Type: application/json
+                </p>
+                <p class="create"><strong>请求地址：</strong>
                     {{apiUrl}}
-                </div>
+                </p>
             </el-col>
         </el-row>
         <el-row>
@@ -189,5 +187,16 @@
         background-color: #F7F8FB;
 
     }
+
+    .name-text{
+        font-size: 28px;
+        line-height: 40px;
+        padding-right: 8px;
+        color: #333;
+        font-weight: 400;
+        padding-top: 3%;
+    }
+
+
 </style>
 
