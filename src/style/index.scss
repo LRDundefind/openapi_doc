@@ -2,6 +2,8 @@
   /*主体*/
 body{
   overflow-y: hidden;
+  font-family: "Helvetica Neue",Arial,"PingFang SC","Hiragino Sans GB",STHeiti,"Microsoft YaHei",sans-serif;
+
 }
 
 .el-main {
@@ -31,7 +33,6 @@ body {
 #app {
   min-width: 1200px;
   margin: 0 auto;
-  font-family: "Helvetica Neue", "PingFang SC", Arial, sans-serif;
 }
 
 /* 头部导航 */
@@ -188,3 +189,90 @@ img {
   width: 95%!important;
 }
 
+.json-viewer{
+  padding: 12px 10px 14px;
+  border: 1px solid #ddd;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  background: #F7F8FB;
+  /* Syntax highlighting for JSON objects */
+  ul.json-dict,
+  ol.json-array {
+    list-style-type: none;
+    margin: 0 0 0 1px;
+    border-left: 1px dotted #ccc;
+    padding-left: 2em;
+    font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+    font-size: 13px;
+    line-height: 1.42857143;
+    word-break: break-all;
+  }
+
+  ul.json-dict li {
+    font-weight: bold;
+    color: #080;
+  }
+
+  .json-string {
+    font-weight: bold;
+    color: #080;
+  }
+
+  .json-literal {
+    color: #066;
+    font-weight: bold;
+
+
+  }
+
+  /* Toggle button */
+  a.json-toggle {
+    position: relative;
+    /*color: inherit;*/
+    text-decoration: none;
+    color: #080;
+    font-weight: bold;
+  }
+
+  a.json-toggle:before {
+    color: #aaa;
+    content: "\25BC"; /* down arrow */
+    position: absolute;
+    display: inline-block;
+    width: 1em;
+    left: -1em;
+  }
+
+  a.json-toggle.collapsed:before {
+    transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg);
+  }
+
+  /* Collapsable placeholder links */
+  a.json-placeholder {
+    color: #aaa;
+    padding: 0 1em;
+    text-decoration: none;
+  }
+
+  a.json-placeholder:hover {
+    text-decoration: underline;
+  }
+
+  .pre-text {
+    counter-reset: section;
+    font-family: Lucida Console, Georgia;
+    font-size: 13px;
+    background: #F7F8FB;
+    color: #000000;
+    border: 1px solid #ddd;
+    padding: 3%;
+    width: 88%;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+
+
+}

@@ -13,13 +13,12 @@
 <script>
 
     import apiDoc from '@/components/apiDoc/api-doc';
-
     export default {
         components: {apiDoc},
         data: function () {
             return {
-                apiName: '更新标签名字',
-                apiUrl: this.apiUrl('v1/contacts/label/update?access_token=ACCESS_TOKEN'),
+                apiName: '更新用户',
+                apiUrl: this.apiUrl('v1/contacts/user/update?access_token=ACCESS_TOKEN'),
                 requestData: {
                     "tagid": "1",
                     "tagname": "JAVA",

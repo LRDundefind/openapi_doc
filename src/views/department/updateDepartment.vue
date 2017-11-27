@@ -1,161 +1,84 @@
 <template>
     <div class="group">
-        <h2>更新部门</h2>
-        <el-row>
-            <el-col :span="24">
-                <div class=" "><strong class="create">请求方式：</strong> POST（HTTPS） </div>
-            </el-col>
-            <el-col :span="24">
-                <div class=" "><strong class="create">请求地址：</strong>
-                    https://qyapi.weixin.qq.com/cgi-bin/user/create?access_token=ACCESS_TOKEN）
-                </div>
-            </el-col>
-        </el-row>
-        <el-row>
-            <el-col :span="24" style="margin:20px 0">
-                <div><strong class="create">请求包体：</strong></div>
-            </el-col>
-        </el-row>
+        <api-doc
+                :api-name="apiName"
+                :method-type="methodType"
+                :api-url="apiUrl"
+                :request-data="requestData"
+                :response-data="responseData"
+                :request-table-data="requestTableData"
+                :response-table-data="responseTableData"
+        >
 
-        <!-- 转换json格式组件 -->
-        <json-viewer :data="departmentData" :id-name="jsonId2.jsonViewer1"></json-viewer>
-        <!--<json-viewer :data="Data1" :id-name="jsonId.jsonViewer2"></json-viewer>-->
-        <el-row>
-            <el-col :span="24" style="margin:20px 0">
-                <div><strong class="create">参数说明：</strong></div>
-            </el-col>
-        </el-row>
 
-        <el-table
-                :data="tableData3">
-            <el-table-column
-                    prop="date"
-                    label="参数"
-                    width="150">
-            </el-table-column>
-            <el-table-column
-                    prop="name"
-                    label="必须"
-                    width="120">
-            </el-table-column>
-
-            <el-table-column
-                    prop="province"
-                    label="说明"
-                    width="600">
-            </el-table-column>
-
-        </el-table>
-
+        </api-doc>
         <el-row>
             <el-col :span="24" style="margin-top: 20px">
-                <div><strong class="create">权限说明：</strong></div>
+                <div><strong class="create">注意事项：</strong></div>
             </el-col>
-        </el-row>
-
-        <el-row>
             <el-col :span="24" style="margin-top: 20px">
-                <div>系统应用须拥有指定部门的管理权限。</div>
+
             </el-col>
         </el-row>
-
-        <el-row>
-            <el-col :span="24" style="margin:20px 0">
-                <div><strong class="create">返回结果：</strong></div>
-            </el-col>
-        </el-row>
-        <json-viewer :data="departmentData1" :id-name="jsonId2.jsonViewer2"></json-viewer>
-
     </div>
 </template>
+
 <script>
-    import jsonViewer from '@/components/jsonViewer/jsonViewer';
+
+    import apiDoc from '@/components/apiDoc/api-doc';
 
     export default {
-        name: 'group',
+        components: {apiDoc},
         data: function () {
             return {
-                jsonId2: {
-                    jsonViewer1: "departmentData",
-                    jsonViewer2: "departmentData1"
+                apiName: '更新部门',
+                methodType: 'POST',
+
+                apiUrl: this.apiUrl('v1/contacts/department/update?access_token=ACCESS_TOKEN'),
+                requestData: {
+                    "name": "JAVA",
+                    "parentid": "0",
+                    "id": "2",
+                    "order": "2",
+                },
+                responseData: {
+                    "errmsg": "",
+                    "errcode": 0,
+                    "results": {
+                        "id": "5",
+                    }
                 },
 
-                departmentData: [
+                requestTableData: [
                     {
-                        id: '001',
-                        title: '"userid"',
-                        type: '"zhangsan"',
-                    }, {
-                        id: '002',
-                        title: '"userid"',
-                        type: '"张三" ',
-                    }, {
-                        id: '003',
-                        title: '"userid"',
-                        type: '"zhangsan"',
-                    }, {
-                        id: '004',
-                        title: '"english_name"',
-                        type: '"jackzhang"',
-                    }],
-                departmentData1: [
+                        date: 'id',
+                        name: '是',
+                        province: '部门id，非负整型, 企业下唯一, 11位整型',
+                    },
                     {
-                        id: '001',
-                        title: '"userid"',
-                        type: '"zhangsan"',
+                        date: 'name',
+                        name: '否',
+                        province: '部门名称，长度限制为32个字（汉字或英文字母），不能包含特殊字符',
                     }, {
-                        id: '002',
-                        title: '"userid"',
-                        type: '"李四" ',
+                        date: 'parentid',
+                        name: '否',
+                        province: '父部门ID，0为一级分类, 11位整型',
                     }, {
-                        id: '003',
-                        title: '"userid"',
-                        type: '"zhangsan"',
-                    }, {
-                        id: '004',
-                        title: '"english_name"',
-                        type: '"jackzhang"',
+                        date: 'order',
+                        name: '否',
+                        province: '在父部门中的排序值',
                     }],
-
-                tableData3: [{
-                    date: 'access_token',
-                    name: '是',
-                    province: '调用接口凭证',
-                }, {
-                    date: 'userid',
-                    name: '是',
-                    province: '成员UserID。对应管理端的帐号，企业内必须唯一。不区分大小写，长度为1~64个字节',
-                }, {
-                    date: 'name',
-                    name: '是',
-                    province: '成员名称。长度为1~64个字节',
-                }, {
-                    date: 'english_name',
-                    name: '否',
-                    province: '英文名。长度为1-64个字节。',
-                }, {
-                    date: 'mobile',
-                    name: '否',
-                    province: '手机号码。企业内必须唯一，mobile/email二者不能同时为空',
-                }, {
-                    date: 'department',
-                    name: '是',
-                    province: '成员所属部门id列表,不超过20个',
-                }, {
-                    date: 'order',
-                    name: '否',
-                    province: '部门内的排序值，默认为0。数量必须和department一致，数值越大排序越前面。有效的值范围是[0, 2^32)',
+                responseTableData: [{
+                    date: 'id',
+                    province: '部门自增ID',
                 }]
             }
         },
-        components: {jsonViewer},
-        mounted() {
-
-        },
-
-        methods: {
+        created() {
 
         }
+
+
     }
 
 </script>

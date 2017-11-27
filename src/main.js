@@ -8,6 +8,9 @@ import routeConfig from './router/index'
 import 'element-ui/lib/theme-chalk/index.css';
 
 import store from './store.js'
+import utils from './utils/util'
+Vue.use(utils);
+
 
 //加载路由中间件
 Vue.use(VueRouter);

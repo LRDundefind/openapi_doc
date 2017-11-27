@@ -1,161 +1,79 @@
 <template>
     <div class="group">
-        <h2>开始开发</h2>
-        <el-row>
-            <el-col :span="24">
-                <div class=" "><strong class="create">请求方式：</strong> POST（HTTPS） </div>
-            </el-col>
-            <el-col :span="24">
-                <div class=" "><strong class="create">请求地址：</strong>
-                    https://qyapi.weixin.qq.com/cgi-bin/user/create?access_token=ACCESS_TOKEN）
-                </div>
-            </el-col>
-        </el-row>
-        <el-row>
-            <el-col :span="24" style="margin:20px 0">
-                <div><strong class="create">请求包体：</strong></div>
-            </el-col>
-        </el-row>
+        <api-doc
+                :api-name="apiName"
+                :api-url="apiUrl"
+                :request-data="requestData"
+                :response-data="responseData"
+                :request-table-data="requestTableData"
+                :response-table-data="responseTableData"
+        >
 
-        <!-- 转换json格式组件 -->
-        <json-viewer :data="startData" :id-name="jsonId.jsonViewer1"></json-viewer>
-        <!--<json-viewer :data="Data1" :id-name="jsonId.jsonViewer2"></json-viewer>-->
-        <el-row>
-            <el-col :span="24" style="margin:20px 0">
-                <div><strong class="create">参数说明：</strong></div>
-            </el-col>
-        </el-row>
 
-        <el-table
-                :data="tableData3">
-            <el-table-column
-                    prop="date"
-                    label="参数"
-                    width="150">
-            </el-table-column>
-            <el-table-column
-                    prop="name"
-                    label="必须"
-                    width="120">
-            </el-table-column>
-
-            <el-table-column
-                    prop="province"
-                    label="说明"
-                    width="600">
-            </el-table-column>
-
-        </el-table>
-
+        </api-doc>
         <el-row>
             <el-col :span="24" style="margin-top: 20px">
-                <div><strong class="create">权限说明：</strong></div>
+                <div><strong class="create">注意事项：</strong></div>
             </el-col>
-        </el-row>
-
-        <el-row>
             <el-col :span="24" style="margin-top: 20px">
-                <div>系统应用须拥有指定部门的管理权限。</div>
+                <p>开发者需要缓存access_token，用于后续接口的调用（注意：不能频繁调用get-token接口，否则会受到频率拦截）。当access_token失效或过期时，需要重新获取。</p>
+                <p>access_token的有效期通过返回的expires_in来传达，正常情况下为7200秒（2小时），有效期内重复获取返回相同结果，过期后获取会返回新的access_token。同时之前的过期后获取会返回新的access_token将失效。</p>
+                <p>access_token至少保留512字节的存储空间。</p>
+                <p>魔学院可能会出于运营需要，提前使access_token失效，开发者应实现access_token失效时重新获取的逻辑。</p>
             </el-col>
         </el-row>
-
-        <el-row>
-            <el-col :span="24" style="margin:20px 0">
-                <div><strong class="create">返回结果：</strong></div>
-            </el-col>
-        </el-row>
-        <json-viewer :data="startData1" :id-name="jsonId.jsonViewer2"></json-viewer>
 
     </div>
 </template>
 <script>
-    import jsonViewer from '@/components/jsonViewer/jsonViewer';
+
+    import apiDoc from '@/components/apiDoc/api-doc';
 
     export default {
-        name: 'group',
+        components: {apiDoc},
         data: function () {
             return {
-                jsonId: {
-                    jsonViewer1: "startData",
-                    jsonViewer2: "startData1"
+                apiName: '开始开发',
+                apiUrl: this.apiUrl('v1/connect/get-token?corpid=CORPID&corpsecret=CORPSECRET'),
+                requestData: {
+                    "corpid": "MXY98702456780",
+                    "corpsecret": "",
+                },
+                responseData: {
+                    "status": "Y",
+                    "errmsg": "",
+                    "errcode": 0,
+                    "results": {
+                        "access_token": "a89a40cc81c08f390a1971576726a98434b59657",
+                        "expires_in": 1511252368
+                    }
                 },
 
-                startData: [
-                    {
-                        id: '001',
-                        title: '"userid"',
-                        type: '"zhangsan"',
-                    }, {
-                        id: '002',
-                        title: '"userid"',
-                        type: '"张三" ',
-                    }, {
-                        id: '003',
-                        title: '"userid"',
-                        type: '"zhangsan"',
-                    }, {
-                        id: '004',
-                        title: '"english_name"',
-                        type: '"jackzhang"',
-                    }],
-                startData1: [
-                    {
-                        id: '001',
-                        title: '"userid"',
-                        type: '"zhangsan"',
-                    }, {
-                        id: '002',
-                        title: '"userid"',
-                        type: '"李四" ',
-                    }, {
-                        id: '003',
-                        title: '"userid"',
-                        type: '"zhangsan"',
-                    }, {
-                        id: '004',
-                        title: '"english_name"',
-                        type: '"jackzhang"',
-                    }],
-
-                tableData3: [{
+                requestTableData: [{
+                    date: 'corpid',
+                    name: '是',
+                    province: '企业ID',
+                }, {
+                    date: 'corpsecret',
+                    name: '是',
+                    province: '企业的凭证密钥(魔学院分配)',
+                }],
+                responseTableData: [{
                     date: 'access_token',
-                    name: '是',
-                    province: '调用接口凭证',
+                    province: '获取到的凭证,最长为512字节',
                 }, {
-                    date: 'userid',
-                    name: '是',
-                    province: '成员UserID。对应管理端的帐号，企业内必须唯一。不区分大小写，长度为1~64个字节',
-                }, {
-                    date: 'name',
-                    name: '是',
-                    province: '成员名称。长度为1~64个字节',
-                }, {
-                    date: 'english_name',
-                    name: '否',
-                    province: '英文名。长度为1-64个字节。',
-                }, {
-                    date: 'mobile',
-                    name: '否',
-                    province: '手机号码。企业内必须唯一，mobile/email二者不能同时为空',
-                }, {
-                    date: 'department',
-                    name: '是',
-                    province: '成员所属部门id列表,不超过20个',
-                }, {
-                    date: 'order',
-                    name: '否',
-                    province: '部门内的排序值，默认为0。数量必须和department一致，数值越大排序越前面。有效的值范围是[0, 2^32)',
-                }]
+                    date: 'expires_in',
+                    province: '凭证的有效时间（Unix时间戳）',
+                }],
+                notes: ''
             }
         },
-        components: { jsonViewer },
+
         mounted() {
 
         },
 
-        methods: {
-
-        }
+        methods: {}
     }
 
 </script>

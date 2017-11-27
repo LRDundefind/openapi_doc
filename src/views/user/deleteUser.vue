@@ -18,11 +18,11 @@
         components: {apiDoc},
         data: function () {
             return {
-                apiName: '更新标签名字',
-                apiUrl: this.apiUrl('v1/contacts/label/update?access_token=ACCESS_TOKEN'),
+                apiName: '删除用户',
+                apiUrl: this.apiUrl('v1/contacts/user/delete?access_token=ACCESS_TOKEN'),
                 requestData: {
                     "tagid": "1",
-                    "tagname": "JAVA",
+
                 },
                 responseData: {
                     "status": "Y",
@@ -37,10 +37,6 @@
                     date: 'tagid',
                     name: '是',
                     province: '标签id，非负整型',
-                }, {
-                    date: 'tagname',
-                    name: '是',
-                    province: '标签名称，长度限制为32个字（汉字或英文字母）',
                 }],
                 responseTableData: [{
                     date: 'id',
@@ -50,7 +46,10 @@
         },
         created() {
 
-        }
+        },
+
+        methods: {}
     }
+
 </script>
 
