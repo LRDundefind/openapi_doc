@@ -53,20 +53,20 @@
                         <template slot="title">部门管理</template>
                         <!--<el-menu-item-group>-->
                         <!--<template slot="title">分组一</template>-->
-                        <el-menu-item index="/createDepartment">创建部门</el-menu-item>
-                        <el-menu-item index="/updateDepartment">更新部门</el-menu-item>
-                        <el-menu-item index="/updateDepartment">删除部门</el-menu-item>
-                        <el-menu-item index="/getDepartment">获取部门列表</el-menu-item>
+                        <el-menu-item index="/department/create">创建部门</el-menu-item>
+                        <el-menu-item index="/department/update">更新部门</el-menu-item>
+                        <el-menu-item index="/department/delete">删除部门</el-menu-item>
+                        <el-menu-item index="/department/get">获取部门列表</el-menu-item>
                         <!--</el-menu-item-group>-->
                     </el-submenu>
                     <el-submenu index="3">
                         <template slot="title">标签管理</template>
                         <!--<el-menu-item-group>-->
                         <!--<template slot="title">分组一</template>-->
-                        <el-menu-item index="/createLabel">创建标签</el-menu-item>
-                        <el-menu-item index="/UpdateName">更新标签名字</el-menu-item>
-                        <el-menu-item index="/deleteLabel">删除标签</el-menu-item>
-                        <el-menu-item index="/getLabel">获取标签列表</el-menu-item>
+                        <el-menu-item index="/label/create">创建标签</el-menu-item>
+                        <el-menu-item index="/label/update">更新标签名字</el-menu-item>
+                        <el-menu-item index="/label/delete">删除标签</el-menu-item>
+                        <el-menu-item index="/label/get">获取标签列表</el-menu-item>
                     </el-submenu>
                     <li style="min-height: 500px">
                     </li>

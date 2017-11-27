@@ -49,14 +49,46 @@ export default [
     },
 
 
-    {path: '/getDepartment', name: "getDepartment", component: getDepartment},
-    {path: '/updateDepartment', name: "updateDepartment", component: updateDepartment},
-    {path: '/createDepartment', name: "createDepartment", component: createDepartment},
-    {path: '/deleteDepartment', name: "deleteDepartment", component: deleteDepartment},
+    {
+        path: '/department/get',
+        component: getDepartment,
+        name: 'getDepartment',
+    },
+    {
+        path: '/department/update',
+        component: updateDepartment,
+        name: 'updateDepartment',
+    },
+    {
+        path: '/department/create',
+        component: getDepartment,
+        name: 'getDepartment',
+    },
+    {
+        path: '/department/delete',
+        component: deleteDepartment,
+        name: 'deleteDepartment',
+    },
 
-    {path: '/createLabel', name: "createLabel", component: createLabel},
-    {path: '/updateName', name: "updateName", component: updateName},
-    {path: '/deleteLabel', name: "deleteLabel", component: deleteLabel},
-    {path: '/getLabel', name: "getLabel", component: getLabel},
-    {path: '*', redirect: '/summary'}
+    {
+        path: '/label/create',
+        component: createLabel,
+        name: 'createLabel',
+    },
+    {
+        path: '/label/update',
+        component: updateName,
+        name: 'updateName',
+    },
+    {
+        path: '/label/delete',
+        component: deleteLabel,
+        name: 'deleteLabel',
+    },
+    {
+        path: '/label/get',
+        component: getLabel,
+        name: 'getLabel',
+    },
+
 ]
