@@ -20,7 +20,7 @@
         </el-header>
         <el-main>
         <el-container  :style="{height: clientHeight +'px'}">
-            <el-aside width="15%" id="aside">
+            <el-aside width="13%" id="aside">
                 <el-menu default-active="/createMember" :router="true">
                     <div class="el-menu-title">
                         开发前必读
@@ -68,7 +68,7 @@
                         <el-menu-item index="/deleteLabel">删除标签</el-menu-item>
                         <el-menu-item index="/getLabel">获取标签列表</el-menu-item>
                     </el-submenu>
-                    <li style="min-height: 500px">
+                    <li style="min-height: 800px">
                     </li>
                 </el-menu>
             </el-aside>
