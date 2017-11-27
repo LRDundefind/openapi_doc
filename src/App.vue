@@ -21,7 +21,7 @@
         <el-main>
         <el-container  :style="{height: clientHeight +'px'}">
             <el-aside width="13%" id="aside">
-                <el-menu default-active="/user/create" :router="true">
+                <el-menu default-active="/user/create" :default-openeds="['1','2','3']"   :router="true">
                     <div class="el-menu-title">
                         开发前必读
                     </div>
