@@ -46,7 +46,7 @@ export function json2html(json, withQuotes) {
                 html += '<li>';
                 /* Add toggle button if item is collapsable */
                 if (isCollapsable(json[i])) {
-                    html += '<a href class="json-toggle"></a>';
+                    //html += '<a href class="json-toggle"></a>';
                 }
                 html += json2html(json[i], withQuotes);
                 /* Add comma if item is not last */
@@ -72,7 +72,8 @@ export function json2html(json, withQuotes) {
                     '<span class="json-string">"' + key + '"</span>' : key;
                     /* Add toggle button if item is collapsable */
                     if (isCollapsable(json[key])) {
-                        html += '<a href class="json-toggle">' + keyRepr + '</a>';
+                        //html += '<a href class="json-toggle">' + keyRepr + '</a>';
+                        html += keyRepr;
                     }
                     else {
                         html += keyRepr;
