@@ -21,7 +21,7 @@
         <el-main>
         <el-container  :style="{height: clientHeight +'px'}">
             <el-aside width="13%" id="aside">
-                <el-menu default-active="/createMember" :router="true">
+                <el-menu default-active="/user/create" :router="true">
                     <div class="el-menu-title">
                         开发前必读
                     </div>
@@ -38,7 +38,7 @@
                         <span slot="title" class="li-text">更新日志</span>
                     </el-menu-item>
 
-                    <div class="el-menu-title" style="margin-top: -8%">
+                    <div class="el-menu-title" style="margin-top: -3%">
                         通讯录管理
                     </div>
                     <el-submenu index="1">
@@ -109,7 +109,7 @@
         },
 
         created: function () {
-
+            this.$router.push('/user/create')
         },
         methods: {
             handleOpen(key, keyPath) {

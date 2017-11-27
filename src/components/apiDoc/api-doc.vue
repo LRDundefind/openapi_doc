@@ -197,6 +197,10 @@
         padding-top: 3%;
     }
 
+    .api-doc .el-table__header th{
+        color: #333333!important;
+    }
+
 
 </style>
 
