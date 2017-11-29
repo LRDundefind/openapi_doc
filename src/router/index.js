@@ -3,10 +3,13 @@ import startDevelopment from '@/views/preface/startDevelopment'
 import developerTools from '@/views/preface/developerTools'
 import updateLog from '@/views/preface/updateLog'
 
+import errcode from '@/views/preface/errcode'
+
 import createUser from '@/views/user/createUser'
 import getUser from '@/views/user/getUser'
 import updateUser from '@/views/user/updateUser'
 import deleteUser from '@/views/user/deleteUser'
+import batchdeleteUser from '@/views/user/batchdeleteUser'
 
 import getDepartment from '@/views/department/getDepartment'
 import updateDepartment from '@/views/department/updateDepartment'
@@ -26,7 +29,7 @@ export default [
     {path: '/developerTools', name: "developerTools", component: developerTools},
     {path: '/updateLog', name: "updateLog", component: updateLog},
 
-
+    {path: '/errcode', name: "errcode", component: errcode},
     {
         path: '/user/create',
         component: createUser,
@@ -47,7 +50,11 @@ export default [
         component: deleteUser,
         name: '401',
     },
-
+    {
+        path: '/user/batchdelete',
+        component: batchdeleteUser,
+        name: '401',
+    },
 
     {
         path: '/department/get',
@@ -90,5 +97,6 @@ export default [
         component: getLabel,
         name: 'getLabel',
     },
+    {path: '*', name: "summary", component: summary},
 
 ]

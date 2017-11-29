@@ -33,48 +33,63 @@
 
                 apiUrl: this.apiUrl('v1/contacts/user/create?access_token=ACCESS_TOKEN'),
                 requestData: {
-                    "userid": "1",
+                    "userid": "zhangshan",
                     "name": "张三",
                     "mobile": "13987654321",
-                    "department": "1",
+                    "department": ["1"],
+                    "avatar": "http://xxx.com/1.png"
                 },
                 responseData: {
-                    "errmsg": "",
                     "errcode": 0,
-                    "results": {
-                        "uid": "5",
-                    }
+                    "errmsg": "created",
+                    "results": {}
                 },
 
                 requestTableData: [
                     {
                         date: 'userid',
                         name: '是',
-                        province: '用户id，长度限制为50字符, 企业下唯一',
+                        province: '用户id，长度限制为50字符, 企业下唯一，无法修改',
                     }, {
                         date: 'name',
                         name: '是',
-                        province: '用户名',
+                        province: '成员名称。长度为1~30个字节',
                     }, {
                         date: 'mobile',
                         name: '否',
                         province: '手机号',
                     },
                     {
+                        date: 'email',
+                        name: '否',
+                        province: '邮箱。长度为0~60个字节。企业内必须唯一',
+                    },
+                    {
+                        date: 'gender',
+                        name: '否',
+                        province: '性别。1表示男性，2表示女性',
+                    },
+                    {
                         date: 'department',
                         name: '否',
                         province: '部门ID，多个用,隔开',
-                    }],
-                responseTableData: [{
-                    date: 'id',
-                    province: '用户UID',
-                }]
+                    },
+                    {
+                        date: 'avatar',
+                        name: '否',
+                        province: '用户头像超链接',
+                    },
+                    {
+                        date: 'disabled',
+                        name: '否',
+                        province: '启用/禁用成员。0表示启用用户，1表示禁用用户（禁用的用户将无法登录）',
+                    }
+                ],
+                responseTableData: false
             }
         },
         created() {
-
         }
-
 
     }
 

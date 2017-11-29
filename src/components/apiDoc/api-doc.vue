@@ -66,30 +66,31 @@
             </el-col>
         </el-row>
         <div class="json-viewer" v-html="responseJson"></div>
-        <el-row>
+        <el-row v-if="responseTableData">
             <el-col :span="24" style="margin:20px 0">
                 <div><strong class="create">参数说明：</strong></div>
             </el-col>
-        </el-row>
-        <el-row>
-            <el-table
-                    :data="responseTableData"
-                    border
-                    style="width: 100%;">
-                <el-table-column
-                        prop="date"
-                        label="参数"
-                        width="150">
-                </el-table-column>
-                <el-table-column
-                        prop="province"
-                        label="说明"
-                >
-                </el-table-column>
+            <el-col :span="24">
+                <el-table
+                        :data="responseTableData"
+                        border
+                        style="width: 100%;">
+                    <el-table-column
+                            prop="date"
+                            label="参数"
+                            width="150">
+                    </el-table-column>
+                    <el-table-column
+                            prop="province"
+                            label="说明"
+                    >
+                    </el-table-column>
 
-            </el-table>
+                </el-table>
+            </el-col>
         </el-row>
-        <el-row v-if="notes != ''">
+
+        <el-row v-if="notes.length > 0">
             <el-col :span="24" style="margin-top: 20px">
                 <div><strong class="create">注意事项：</strong></div>
             </el-col>

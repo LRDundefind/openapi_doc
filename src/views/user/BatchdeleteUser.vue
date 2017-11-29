@@ -2,6 +2,7 @@
     <div class="group">
         <api-doc
                 :api-name="apiName"
+                :method-type="methodType"
                 :api-url="apiUrl"
                 :request-data="requestData"
                 :response-data="responseData"
@@ -18,11 +19,11 @@
         components: {apiDoc},
         data: function () {
             return {
-                apiName: '删除用户',
-                apiUrl: this.apiUrl('v1/contacts/user/delete?access_token=ACCESS_TOKEN'),
+                apiName: '批量删除用户',
+                methodType: 'POST',
+                apiUrl: this.apiUrl('v1/contacts/user/batchdelete?access_token=ACCESS_TOKEN'),
                 requestData: {
-                    "userid": "001",
-
+                    "useridlist": ["001", "lisi"]
                 },
                 responseData: {
                     "errmsg": "deleted",
@@ -31,17 +32,19 @@
                 },
 
                 requestTableData: [{
-                    date: 'userid',
+                    date: 'useridlist',
                     name: '是',
-                    province: '用户id',
+                    province: '要删除的用户userid，(最多支持200个)',
                 }],
-                responseTableData: []
+                responseTableData: null
             }
         },
         created() {
 
         },
+
         methods: {}
     }
+
 </script>
 

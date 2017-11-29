@@ -21,7 +21,7 @@
         <el-main>
         <el-container  :style="{height: clientHeight +'px'}">
             <el-aside width="13%" id="aside">
-                <el-menu default-active="/user/create" :default-openeds="['1','2','3']"   :router="true">
+                <el-menu default-active="/user/create" :default-openeds="['1','2','3','9']"   :router="true">
                     <div class="el-menu-title">
                         开发前必读
                     </div>
@@ -47,6 +47,7 @@
                         <el-menu-item index="/user/get">读取用户</el-menu-item>
                         <el-menu-item index="/user/update">更新用户</el-menu-item>
                         <el-menu-item index="/user/delete">删除用户</el-menu-item>
+                        <el-menu-item index="/user/batchdelete">批量删除用户</el-menu-item>
                     </el-submenu>
 
                     <el-submenu index="2">
@@ -67,6 +68,10 @@
                         <el-menu-item index="/label/update">更新标签名字</el-menu-item>
                         <el-menu-item index="/label/delete">删除标签</el-menu-item>
                         <el-menu-item index="/label/get">获取标签列表</el-menu-item>
+                    </el-submenu>
+                    <el-submenu index="9">
+                        <template slot="title">附录</template>
+                        <el-menu-item index="/errcode">全局错误码</el-menu-item>
                     </el-submenu>
                     <li style="min-height: 500px">
                     </li>
