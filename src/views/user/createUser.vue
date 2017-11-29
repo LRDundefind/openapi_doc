@@ -85,7 +85,7 @@
                         province: '启用/禁用成员。0表示启用用户，1表示禁用用户（禁用的用户将无法登录）',
                     }
                 ],
-                responseTableData: false
+                responseTableData: []
             }
         },
         created() {
